@@ -1,0 +1,3382 @@
+
+MyUSBATMega8.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000010b8  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  000010b8  0000114c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000246  00800062  00800062  0000114e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000114e  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000a8  00000000  00000000  00001180  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000e10  00000000  00000000  00001228  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000533  00000000  00000000  00002038  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000660  00000000  00000000  0000256b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000140  00000000  00000000  00002bcc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000058d  00000000  00000000  00002d0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000e7c  00000000  00000000  00003299  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000c8  00000000  00000000  00004115  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	41 c0       	rjmp	.+130    	; 0x84 <__ctors_end>
+       2:	75 c0       	rjmp	.+234    	; 0xee <__vector_1>
+       4:	aa c5       	rjmp	.+2900   	; 0xb5a <__vector_2>
+       6:	59 c0       	rjmp	.+178    	; 0xba <__bad_interrupt>
+       8:	58 c0       	rjmp	.+176    	; 0xba <__bad_interrupt>
+       a:	57 c0       	rjmp	.+174    	; 0xba <__bad_interrupt>
+       c:	76 c5       	rjmp	.+2796   	; 0xafa <__vector_6>
+       e:	55 c0       	rjmp	.+170    	; 0xba <__bad_interrupt>
+      10:	54 c0       	rjmp	.+168    	; 0xba <__bad_interrupt>
+      12:	53 c0       	rjmp	.+166    	; 0xba <__bad_interrupt>
+      14:	52 c0       	rjmp	.+164    	; 0xba <__bad_interrupt>
+      16:	51 c0       	rjmp	.+162    	; 0xba <__bad_interrupt>
+      18:	50 c0       	rjmp	.+160    	; 0xba <__bad_interrupt>
+      1a:	4f c0       	rjmp	.+158    	; 0xba <__bad_interrupt>
+      1c:	4e c0       	rjmp	.+156    	; 0xba <__bad_interrupt>
+      1e:	4d c0       	rjmp	.+154    	; 0xba <__bad_interrupt>
+      20:	4c c0       	rjmp	.+152    	; 0xba <__bad_interrupt>
+      22:	4b c0       	rjmp	.+150    	; 0xba <__bad_interrupt>
+      24:	4a c0       	rjmp	.+148    	; 0xba <__bad_interrupt>
+
+00000026 <__trampolines_end>:
+      26:	09 02       	muls	r16, r25
+      28:	12 00       	.word	0x0012	; ????
+      2a:	01 01       	movw	r0, r2
+      2c:	00 80       	ld	r0, Z
+      2e:	19 09       	sbc	r17, r9
+      30:	04 00       	.word	0x0004	; ????
+      32:	00 00       	nop
+      34:	00 00       	nop
+	...
+
+00000038 <usbDescriptorDevice>:
+      38:	12 01 10 01 ff 00 00 08 c0 16 dc 05 00 01 01 02     ................
+      48:	00 01                                               ..
+
+0000004a <usbDescriptorStringDevice>:
+      4a:	16 03 55 00 53 00 42 00 65 00 78 00 61 00 6d 00     ..U.S.B.e.x.a.m.
+      5a:	70 00 6c 00 65 00                                   p.l.e.
+
+00000060 <usbDescriptorStringVendor>:
+      60:	20 03 63 00 6f 00 64 00 65 00 61 00 6e 00 64 00      .c.o.d.e.a.n.d.
+      70:	6c 00 69 00 66 00 65 00 2e 00 63 00 6f 00 6d 00     l.i.f.e...c.o.m.
+
+00000080 <usbDescriptorString0>:
+      80:	04 03 09 04                                         ....
+
+00000084 <__ctors_end>:
+      84:	11 24       	eor	r1, r1
+      86:	1f be       	out	0x3f, r1	; 63
+      88:	cf e5       	ldi	r28, 0x5F	; 95
+      8a:	d4 e0       	ldi	r29, 0x04	; 4
+      8c:	de bf       	out	0x3e, r29	; 62
+      8e:	cd bf       	out	0x3d, r28	; 61
+
+00000090 <__do_copy_data>:
+      90:	10 e0       	ldi	r17, 0x00	; 0
+      92:	a0 e6       	ldi	r26, 0x60	; 96
+      94:	b0 e0       	ldi	r27, 0x00	; 0
+      96:	e8 eb       	ldi	r30, 0xB8	; 184
+      98:	f0 e1       	ldi	r31, 0x10	; 16
+      9a:	02 c0       	rjmp	.+4      	; 0xa0 <__do_copy_data+0x10>
+      9c:	05 90       	lpm	r0, Z+
+      9e:	0d 92       	st	X+, r0
+      a0:	a2 36       	cpi	r26, 0x62	; 98
+      a2:	b1 07       	cpc	r27, r17
+      a4:	d9 f7       	brne	.-10     	; 0x9c <__do_copy_data+0xc>
+
+000000a6 <__do_clear_bss>:
+      a6:	22 e0       	ldi	r18, 0x02	; 2
+      a8:	a2 e6       	ldi	r26, 0x62	; 98
+      aa:	b0 e0       	ldi	r27, 0x00	; 0
+      ac:	01 c0       	rjmp	.+2      	; 0xb0 <.do_clear_bss_start>
+
+000000ae <.do_clear_bss_loop>:
+      ae:	1d 92       	st	X+, r1
+
+000000b0 <.do_clear_bss_start>:
+      b0:	a8 3a       	cpi	r26, 0xA8	; 168
+      b2:	b2 07       	cpc	r27, r18
+      b4:	e1 f7       	brne	.-8      	; 0xae <.do_clear_bss_loop>
+      b6:	8f d6       	rcall	.+3358   	; 0xdd6 <main>
+      b8:	fd c7       	rjmp	.+4090   	; 0x10b4 <_exit>
+
+000000ba <__bad_interrupt>:
+      ba:	a2 cf       	rjmp	.-188    	; 0x0 <__vectors>
+
+000000bc <usbCrc16>:
+;   poly    r20+r21
+;   scratch r23
+;   resCrc  r24+r25 / r16+r17
+;   ptr     X / Z
+usbCrc16:
+    mov     ptrL, argPtrL
+      bc:	a8 2f       	mov	r26, r24
+    mov     ptrH, argPtrH
+      be:	b9 2f       	mov	r27, r25
+    ldi     resCrcL, 0
+      c0:	80 e0       	ldi	r24, 0x00	; 0
+    ldi     resCrcH, 0
+      c2:	90 e0       	ldi	r25, 0x00	; 0
+    ldi     polyL, lo8(0xa001)
+      c4:	41 e0       	ldi	r20, 0x01	; 1
+    ldi     polyH, hi8(0xa001)
+      c6:	50 ea       	ldi	r21, 0xA0	; 160
+    com     argLen      ; argLen = -argLen - 1: modified loop to ensure that carry is set
+      c8:	60 95       	com	r22
+    ldi     bitCnt, 0   ; loop counter with starnd condition = end condition
+      ca:	30 e0       	ldi	r19, 0x00	; 0
+    rjmp    usbCrcLoopEntry
+      cc:	09 c0       	rjmp	.+18     	; 0xe0 <usbCrcLoopEntry>
+
+000000ce <usbCrcByteLoop>:
+usbCrcByteLoop:
+    ld      byte, ptr+
+      ce:	2d 91       	ld	r18, X+
+    eor     resCrcL, byte
+      d0:	82 27       	eor	r24, r18
+
+000000d2 <usbCrcBitLoop>:
+usbCrcBitLoop:
+    ror     resCrcH     ; carry is always set here (see brcs jumps to here)
+      d2:	97 95       	ror	r25
+    ror     resCrcL
+      d4:	87 95       	ror	r24
+    brcs    usbCrcNoXor
+      d6:	10 f0       	brcs	.+4      	; 0xdc <usbCrcNoXor>
+    eor     resCrcL, polyL
+      d8:	84 27       	eor	r24, r20
+    eor     resCrcH, polyH
+      da:	95 27       	eor	r25, r21
+
+000000dc <usbCrcNoXor>:
+usbCrcNoXor:
+    subi    bitCnt, 224 ; (8 * 224) % 256 = 0; this loop iterates 8 times
+      dc:	30 5e       	subi	r19, 0xE0	; 224
+    brcs    usbCrcBitLoop
+      de:	c8 f3       	brcs	.-14     	; 0xd2 <usbCrcBitLoop>
+
+000000e0 <usbCrcLoopEntry>:
+usbCrcLoopEntry:
+    subi    argLen, -1
+      e0:	6f 5f       	subi	r22, 0xFF	; 255
+    brcs    usbCrcByteLoop
+      e2:	a8 f3       	brcs	.-22     	; 0xce <usbCrcByteLoop>
+
+000000e4 <usbCrcReady>:
+usbCrcReady:
+    ret
+      e4:	08 95       	ret
+
+000000e6 <usbCrc16Append>:
+
+#endif /* USB_USE_FAST_CRC */
+
+; extern unsigned usbCrc16Append(unsigned char *data, unsigned char len);
+usbCrc16Append:
+    rcall   usbCrc16
+      e6:	ea df       	rcall	.-44     	; 0xbc <usbCrc16>
+    st      ptr+, resCrcL
+      e8:	8d 93       	st	X+, r24
+    st      ptr+, resCrcH
+      ea:	9d 93       	st	X+, r25
+    ret
+      ec:	08 95       	ret
+
+000000ee <__vector_1>:
+;max allowable interrupt latency: 34 cycles -> max 25 cycles interrupt disable
+;max stack usage: [ret(2), YL, SREG, YH, shift, x1, x2, x3, cnt, x4] = 11 bytes
+;Numbers in brackets are maximum cycles since SOF.
+USB_INTR_VECTOR:
+;order of registers pushed: YL, SREG [sofError], YH, shift, x1, x2, x3, cnt
+    push    YL              ;2 [35] push only what is necessary to sync with edge ASAP
+      ee:	cf 93       	push	r28
+    in      YL, SREG        ;1 [37]
+      f0:	cf b7       	in	r28, 0x3f	; 63
+    push    YL              ;2 [39]
+      f2:	cf 93       	push	r28
+
+000000f4 <waitForJ>:
+;sync up with J to K edge during sync pattern -- use fastest possible loops
+;The first part waits at most 1 bit long since we must be in sync pattern.
+;YL is guarenteed to be < 0x80 because I flag is clear. When we jump to
+;waitForJ, ensure that this prerequisite is met.
+waitForJ:
+    inc     YL
+      f4:	c3 95       	inc	r28
+    sbis    USBIN, USBMINUS
+      f6:	84 9b       	sbis	0x10, 4	; 16
+    brne    waitForJ        ; just make sure we have ANY timeout
+      f8:	e9 f7       	brne	.-6      	; 0xf4 <waitForJ>
+
+000000fa <waitForK>:
+waitForK:
+;The following code results in a sampling window of 1/4 bit which meets the spec.
+    sbis    USBIN, USBMINUS
+      fa:	84 9b       	sbis	0x10, 4	; 16
+    rjmp    foundK
+      fc:	09 c0       	rjmp	.+18     	; 0x110 <foundK>
+    sbis    USBIN, USBMINUS
+      fe:	84 9b       	sbis	0x10, 4	; 16
+    rjmp    foundK
+     100:	07 c0       	rjmp	.+14     	; 0x110 <foundK>
+    sbis    USBIN, USBMINUS
+     102:	84 9b       	sbis	0x10, 4	; 16
+    rjmp    foundK
+     104:	05 c0       	rjmp	.+10     	; 0x110 <foundK>
+    sbis    USBIN, USBMINUS
+     106:	84 9b       	sbis	0x10, 4	; 16
+    rjmp    foundK
+     108:	03 c0       	rjmp	.+6      	; 0x110 <foundK>
+    sbis    USBIN, USBMINUS
+     10a:	84 9b       	sbis	0x10, 4	; 16
+    rjmp    foundK
+     10c:	01 c0       	rjmp	.+2      	; 0x110 <foundK>
+    sts     usbSofCount, YL
+#endif  /* USB_COUNT_SOF */
+#ifdef USB_SOF_HOOK
+    USB_SOF_HOOK
+#endif
+    rjmp    sofError
+     10e:	a1 c0       	rjmp	.+322    	; 0x252 <sofError>
+
+00000110 <foundK>:
+foundK:
+;{3, 5} after falling D- edge, average delay: 4 cycles [we want 4 for center sampling]
+;we have 1 bit time for setup purposes, then sample again. Numbers in brackets
+;are cycles from center of first sync (double K) bit after the instruction
+    push    YH                  ;2 [2]
+     110:	df 93       	push	r29
+    lds     YL, usbInputBufOffset;2 [4]
+     112:	c0 91 8b 02 	lds	r28, 0x028B
+    clr     YH                  ;1 [5]
+     116:	dd 27       	eor	r29, r29
+    subi    YL, lo8(-(usbRxBuf));1 [6]
+     118:	ce 56       	subi	r28, 0x6E	; 110
+    sbci    YH, hi8(-(usbRxBuf));1 [7]
+     11a:	dd 4f       	sbci	r29, 0xFD	; 253
+
+    sbis    USBIN, USBMINUS ;1 [8] we want two bits K [sample 1 cycle too early]
+     11c:	84 9b       	sbis	0x10, 4	; 16
+    rjmp    haveTwoBitsK    ;2 [10]
+     11e:	02 c0       	rjmp	.+4      	; 0x124 <haveTwoBitsK>
+    pop     YH              ;2 [11] undo the push from before
+     120:	df 91       	pop	r29
+    rjmp    waitForK        ;2 [13] this was not the end of sync, retry
+     122:	eb cf       	rjmp	.-42     	; 0xfa <waitForK>
+
+00000124 <haveTwoBitsK>:
+haveTwoBitsK:
+;----------------------------------------------------------------------------
+; push more registers and initialize values while we sample the first bits:
+;----------------------------------------------------------------------------
+    push    shift           ;2 [16]
+     124:	2f 93       	push	r18
+    push    x1              ;2 [12]
+     126:	0f 93       	push	r16
+    push    x2              ;2 [14]
+     128:	1f 93       	push	r17
+
+    in      x1, USBIN       ;1 [17] <-- sample bit 0
+     12a:	00 b3       	in	r16, 0x10	; 16
+    ldi     shift, 0xff     ;1 [18]
+     12c:	2f ef       	ldi	r18, 0xFF	; 255
+    bst     x1, USBMINUS    ;1 [19]
+     12e:	04 fb       	bst	r16, 4
+    bld     shift, 0        ;1 [20]
+     130:	20 f9       	bld	r18, 0
+    push    x3              ;2 [22]
+     132:	4f 93       	push	r20
+    push    cnt             ;2 [24]
+     134:	3f 93       	push	r19
+    
+    in      x2, USBIN       ;1 [25] <-- sample bit 1
+     136:	10 b3       	in	r17, 0x10	; 16
+    ser     x3              ;1 [26] [inserted init instruction]
+     138:	4f ef       	ldi	r20, 0xFF	; 255
+    eor     x1, x2          ;1 [27]
+     13a:	01 27       	eor	r16, r17
+    bst     x1, USBMINUS    ;1 [28]
+     13c:	04 fb       	bst	r16, 4
+    bld     shift, 1        ;1 [29]
+     13e:	21 f9       	bld	r18, 1
+    ldi     cnt, USB_BUFSIZE;1 [30] [inserted init instruction]
+     140:	3b e0       	ldi	r19, 0x0B	; 11
+    rjmp    rxbit2          ;2 [32]
+     142:	31 c0       	rjmp	.+98     	; 0x1a6 <rxbit2>
+
+00000144 <unstuff0>:
+;----------------------------------------------------------------------------
+; Receiver loop (numbers in brackets are cycles within byte after instr)
+;----------------------------------------------------------------------------
+
+unstuff0:               ;1 (branch taken)
+    andi    x3, ~0x01   ;1 [15]
+     144:	4e 7f       	andi	r20, 0xFE	; 254
+    mov     x1, x2      ;1 [16] x2 contains last sampled (stuffed) bit
+     146:	01 2f       	mov	r16, r17
+    in      x2, USBIN   ;1 [17] <-- sample bit 1 again
+     148:	10 b3       	in	r17, 0x10	; 16
+    ori     shift, 0x01 ;1 [18]
+     14a:	21 60       	ori	r18, 0x01	; 1
+    rjmp    didUnstuff0 ;2 [20]
+     14c:	28 c0       	rjmp	.+80     	; 0x19e <didUnstuff0>
+
+0000014e <unstuff1>:
+
+unstuff1:               ;1 (branch taken)
+    mov     x2, x1      ;1 [21] x1 contains last sampled (stuffed) bit
+     14e:	10 2f       	mov	r17, r16
+    andi    x3, ~0x02   ;1 [22]
+     150:	4d 7f       	andi	r20, 0xFD	; 253
+    ori     shift, 0x02 ;1 [23]
+     152:	22 60       	ori	r18, 0x02	; 2
+    nop                 ;1 [24]
+     154:	00 00       	nop
+    in      x1, USBIN   ;1 [25] <-- sample bit 2 again
+     156:	00 b3       	in	r16, 0x10	; 16
+    rjmp    didUnstuff1 ;2 [27]
+     158:	29 c0       	rjmp	.+82     	; 0x1ac <didUnstuff1>
+
+0000015a <unstuff2>:
+
+unstuff2:               ;1 (branch taken)
+    andi    x3, ~0x04   ;1 [29]
+     15a:	4b 7f       	andi	r20, 0xFB	; 251
+    ori     shift, 0x04 ;1 [30]
+     15c:	24 60       	ori	r18, 0x04	; 4
+    mov     x1, x2      ;1 [31] x2 contains last sampled (stuffed) bit
+     15e:	01 2f       	mov	r16, r17
+    nop                 ;1 [32]
+     160:	00 00       	nop
+    in      x2, USBIN   ;1 [33] <-- sample bit 3
+     162:	10 b3       	in	r17, 0x10	; 16
+    rjmp    didUnstuff2 ;2 [35]
+     164:	2b c0       	rjmp	.+86     	; 0x1bc <didUnstuff2>
+
+00000166 <unstuff3>:
+
+unstuff3:               ;1 (branch taken)
+    in      x2, USBIN   ;1 [34] <-- sample stuffed bit 3 [one cycle too late]
+     166:	10 b3       	in	r17, 0x10	; 16
+    andi    x3, ~0x08   ;1 [35]
+     168:	47 7f       	andi	r20, 0xF7	; 247
+    ori     shift, 0x08 ;1 [36]
+     16a:	28 60       	ori	r18, 0x08	; 8
+    rjmp    didUnstuff3 ;2 [38]
+     16c:	2a c0       	rjmp	.+84     	; 0x1c2 <didUnstuff3>
+
+0000016e <unstuff4>:
+
+unstuff4:               ;1 (branch taken)
+    andi    x3, ~0x10   ;1 [40]
+     16e:	4f 7e       	andi	r20, 0xEF	; 239
+    in      x1, USBIN   ;1 [41] <-- sample stuffed bit 4
+     170:	00 b3       	in	r16, 0x10	; 16
+    ori     shift, 0x10 ;1 [42]
+     172:	20 61       	ori	r18, 0x10	; 16
+    rjmp    didUnstuff4 ;2 [44]
+     174:	2c c0       	rjmp	.+88     	; 0x1ce <didUnstuff4>
+
+00000176 <unstuff5>:
+
+unstuff5:               ;1 (branch taken)
+    andi    x3, ~0x20   ;1 [48]
+     176:	4f 7d       	andi	r20, 0xDF	; 223
+    in      x2, USBIN   ;1 [49] <-- sample stuffed bit 5
+     178:	10 b3       	in	r17, 0x10	; 16
+    ori     shift, 0x20 ;1 [50]
+     17a:	20 62       	ori	r18, 0x20	; 32
+    rjmp    didUnstuff5 ;2 [52]
+     17c:	2f c0       	rjmp	.+94     	; 0x1dc <didUnstuff5>
+
+0000017e <unstuff6>:
+
+unstuff6:               ;1 (branch taken)
+    andi    x3, ~0x40   ;1 [56]
+     17e:	4f 7b       	andi	r20, 0xBF	; 191
+    in      x1, USBIN   ;1 [57] <-- sample stuffed bit 6
+     180:	00 b3       	in	r16, 0x10	; 16
+    ori     shift, 0x40 ;1 [58]
+     182:	20 64       	ori	r18, 0x40	; 64
+    rjmp    didUnstuff6 ;2 [60]
+     184:	32 c0       	rjmp	.+100    	; 0x1ea <didUnstuff6>
+
+00000186 <rxLoop>:
+; bit 4:    none
+; bit 5:    none
+; bit 6:    none
+; bit 7:    jump, eor
+rxLoop:
+    eor     x3, shift   ;1 [0] reconstruct: x3 is 0 at bit locations we changed, 1 at others
+     186:	42 27       	eor	r20, r18
+    in      x1, USBIN   ;1 [1] <-- sample bit 0
+     188:	00 b3       	in	r16, 0x10	; 16
+    st      y+, x3      ;2 [3] store data
+     18a:	49 93       	st	Y+, r20
+    ser     x3          ;1 [4]
+     18c:	4f ef       	ldi	r20, 0xFF	; 255
+    nop                 ;1 [5]
+     18e:	00 00       	nop
+    eor     x2, x1      ;1 [6]
+     190:	10 27       	eor	r17, r16
+    bst     x2, USBMINUS;1 [7]
+     192:	14 fb       	bst	r17, 4
+    bld     shift, 0    ;1 [8]
+     194:	20 f9       	bld	r18, 0
+    in      x2, USBIN   ;1 [9] <-- sample bit 1 (or possibly bit 0 stuffed)
+     196:	10 b3       	in	r17, 0x10	; 16
+    andi    x2, USBMASK ;1 [10]
+     198:	14 71       	andi	r17, 0x14	; 20
+    breq    se0         ;1 [11] SE0 check for bit 1
+     19a:	c9 f1       	breq	.+114    	; 0x20e <se0>
+    andi    shift, 0xf9 ;1 [12]
+     19c:	29 7f       	andi	r18, 0xF9	; 249
+
+0000019e <didUnstuff0>:
+didUnstuff0:
+    breq    unstuff0    ;1 [13]
+     19e:	91 f2       	breq	.-92     	; 0x144 <unstuff0>
+    eor     x1, x2      ;1 [14]
+     1a0:	01 27       	eor	r16, r17
+    bst     x1, USBMINUS;1 [15]
+     1a2:	04 fb       	bst	r16, 4
+    bld     shift, 1    ;1 [16]
+     1a4:	21 f9       	bld	r18, 1
+
+000001a6 <rxbit2>:
+rxbit2:
+    in      x1, USBIN   ;1 [17] <-- sample bit 2 (or possibly bit 1 stuffed)
+     1a6:	00 b3       	in	r16, 0x10	; 16
+    andi    shift, 0xf3 ;1 [18]
+     1a8:	23 7f       	andi	r18, 0xF3	; 243
+    breq    unstuff1    ;1 [19] do remaining work for bit 1
+     1aa:	89 f2       	breq	.-94     	; 0x14e <unstuff1>
+
+000001ac <didUnstuff1>:
+didUnstuff1:
+    subi    cnt, 1      ;1 [20]
+     1ac:	31 50       	subi	r19, 0x01	; 1
+    brcs    overflow    ;1 [21] loop control
+     1ae:	58 f1       	brcs	.+86     	; 0x206 <overflow>
+    eor     x2, x1      ;1 [22]
+     1b0:	10 27       	eor	r17, r16
+    bst     x2, USBMINUS;1 [23]
+     1b2:	14 fb       	bst	r17, 4
+    bld     shift, 2    ;1 [24]
+     1b4:	22 f9       	bld	r18, 2
+    in      x2, USBIN   ;1 [25] <-- sample bit 3 (or possibly bit 2 stuffed)
+     1b6:	10 b3       	in	r17, 0x10	; 16
+    andi    shift, 0xe7 ;1 [26]
+     1b8:	27 7e       	andi	r18, 0xE7	; 231
+    breq    unstuff2    ;1 [27]
+     1ba:	79 f2       	breq	.-98     	; 0x15a <unstuff2>
+
+000001bc <didUnstuff2>:
+didUnstuff2:
+    eor     x1, x2      ;1 [28]
+     1bc:	01 27       	eor	r16, r17
+    bst     x1, USBMINUS;1 [29]
+     1be:	04 fb       	bst	r16, 4
+    bld     shift, 3    ;1 [30]
+     1c0:	23 f9       	bld	r18, 3
+
+000001c2 <didUnstuff3>:
+didUnstuff3:
+    andi    shift, 0xcf ;1 [31]
+     1c2:	2f 7c       	andi	r18, 0xCF	; 207
+    breq    unstuff3    ;1 [32]
+     1c4:	81 f2       	breq	.-96     	; 0x166 <unstuff3>
+    in      x1, USBIN   ;1 [33] <-- sample bit 4
+     1c6:	00 b3       	in	r16, 0x10	; 16
+    eor     x2, x1      ;1 [34]
+     1c8:	10 27       	eor	r17, r16
+    bst     x2, USBMINUS;1 [35]
+     1ca:	14 fb       	bst	r17, 4
+    bld     shift, 4    ;1 [36]
+     1cc:	24 f9       	bld	r18, 4
+
+000001ce <didUnstuff4>:
+didUnstuff4:
+    andi    shift, 0x9f ;1 [37]
+     1ce:	2f 79       	andi	r18, 0x9F	; 159
+    breq    unstuff4    ;1 [38]
+     1d0:	71 f2       	breq	.-100    	; 0x16e <unstuff4>
+    nop2                ;2 [40]
+     1d2:	00 c0       	rjmp	.+0      	; 0x1d4 <didUnstuff4+0x6>
+    in      x2, USBIN   ;1 [41] <-- sample bit 5
+     1d4:	10 b3       	in	r17, 0x10	; 16
+    eor     x1, x2      ;1 [42]
+     1d6:	01 27       	eor	r16, r17
+    bst     x1, USBMINUS;1 [43]
+     1d8:	04 fb       	bst	r16, 4
+    bld     shift, 5    ;1 [44]
+     1da:	25 f9       	bld	r18, 5
+
+000001dc <didUnstuff5>:
+didUnstuff5:
+    andi    shift, 0x3f ;1 [45]
+     1dc:	2f 73       	andi	r18, 0x3F	; 63
+    breq    unstuff5    ;1 [46]
+     1de:	59 f2       	breq	.-106    	; 0x176 <unstuff5>
+    nop2                ;2 [48]
+     1e0:	00 c0       	rjmp	.+0      	; 0x1e2 <didUnstuff5+0x6>
+    in      x1, USBIN   ;1 [49] <-- sample bit 6
+     1e2:	00 b3       	in	r16, 0x10	; 16
+    eor     x2, x1      ;1 [50]
+     1e4:	10 27       	eor	r17, r16
+    bst     x2, USBMINUS;1 [51]
+     1e6:	14 fb       	bst	r17, 4
+    bld     shift, 6    ;1 [52]
+     1e8:	26 f9       	bld	r18, 6
+
+000001ea <didUnstuff6>:
+didUnstuff6:
+    cpi     shift, 0x02 ;1 [53]
+     1ea:	22 30       	cpi	r18, 0x02	; 2
+    brlo    unstuff6    ;1 [54]
+     1ec:	40 f2       	brcs	.-112    	; 0x17e <unstuff6>
+    nop2                ;2 [56]
+     1ee:	00 c0       	rjmp	.+0      	; 0x1f0 <didUnstuff6+0x6>
+    in      x2, USBIN   ;1 [57] <-- sample bit 7
+     1f0:	10 b3       	in	r17, 0x10	; 16
+    eor     x1, x2      ;1 [58]
+     1f2:	01 27       	eor	r16, r17
+    bst     x1, USBMINUS;1 [59]
+     1f4:	04 fb       	bst	r16, 4
+    bld     shift, 7    ;1 [60]
+     1f6:	27 f9       	bld	r18, 7
+
+000001f8 <didUnstuff7>:
+didUnstuff7:
+    cpi     shift, 0x04 ;1 [61]
+     1f8:	24 30       	cpi	r18, 0x04	; 4
+    brsh    rxLoop      ;2 [63] loop control
+     1fa:	28 f6       	brcc	.-118    	; 0x186 <rxLoop>
+
+000001fc <unstuff7>:
+unstuff7:
+    andi    x3, ~0x80   ;1 [63]
+     1fc:	4f 77       	andi	r20, 0x7F	; 127
+    ori     shift, 0x80 ;1 [64]
+     1fe:	20 68       	ori	r18, 0x80	; 128
+    in      x2, USBIN   ;1 [65] <-- sample stuffed bit 7
+     200:	10 b3       	in	r17, 0x10	; 16
+    nop                 ;1 [66]
+     202:	00 00       	nop
+    rjmp    didUnstuff7 ;2 [68]
+     204:	f9 cf       	rjmp	.-14     	; 0x1f8 <didUnstuff7>
+
+00000206 <overflow>:
+*/
+
+#define token   x1
+
+overflow:
+    ldi     x2, 1<<USB_INTR_PENDING_BIT
+     206:	10 e4       	ldi	r17, 0x40	; 64
+    USB_STORE_PENDING(x2)       ; clear any pending interrupts
+     208:	1a bf       	out	0x3a, r17	; 58
+
+0000020a <ignorePacket>:
+ignorePacket:
+    clr     token
+     20a:	00 27       	eor	r16, r16
+    rjmp    storeTokenAndReturn
+     20c:	17 c0       	rjmp	.+46     	; 0x23c <handleSetupOrOut>
+
+0000020e <se0>:
+; Processing of received packet (numbers in brackets are cycles after center of SE0)
+;----------------------------------------------------------------------------
+;This is the only non-error exit point for the software receiver loop
+;we don't check any CRCs here because there is no time left.
+se0:
+    subi    cnt, USB_BUFSIZE    ;[5]
+     20e:	3b 50       	subi	r19, 0x0B	; 11
+    neg     cnt                 ;[6]
+     210:	31 95       	neg	r19
+    sub     YL, cnt             ;[7]
+     212:	c3 1b       	sub	r28, r19
+    sbci    YH, 0               ;[8]
+     214:	d0 40       	sbci	r29, 0x00	; 0
+    ldi     x2, 1<<USB_INTR_PENDING_BIT ;[9]
+     216:	10 e4       	ldi	r17, 0x40	; 64
+    USB_STORE_PENDING(x2)       ;[10] clear pending intr and check flag later. SE0 should be over.
+     218:	1a bf       	out	0x3a, r17	; 58
+    ld      token, y            ;[11]
+     21a:	08 81       	ld	r16, Y
+    cpi     token, USBPID_DATA0 ;[13]
+     21c:	03 3c       	cpi	r16, 0xC3	; 195
+    breq    handleData          ;[14]
+     21e:	e9 f0       	breq	.+58     	; 0x25a <handleData>
+    cpi     token, USBPID_DATA1 ;[15]
+     220:	0b 34       	cpi	r16, 0x4B	; 75
+    breq    handleData          ;[16]
+     222:	d9 f0       	breq	.+54     	; 0x25a <handleData>
+    lds     shift, usbDeviceAddr;[17]
+     224:	20 91 89 02 	lds	r18, 0x0289
+    ldd     x2, y+1             ;[19] ADDR and 1 bit endpoint number
+     228:	19 81       	ldd	r17, Y+1	; 0x01
+    lsl     x2                  ;[21] shift out 1 bit endpoint number
+     22a:	11 0f       	add	r17, r17
+    cpse    x2, shift           ;[22]
+     22c:	12 13       	cpse	r17, r18
+    rjmp    ignorePacket        ;[23]
+     22e:	ed cf       	rjmp	.-38     	; 0x20a <ignorePacket>
+/* only compute endpoint number in x3 if required later */
+#if USB_CFG_HAVE_INTRIN_ENDPOINT || USB_CFG_IMPLEMENT_FN_WRITEOUT
+    ldd     x3, y+2             ;[24] endpoint number + crc
+    rol     x3                  ;[26] shift in LSB of endpoint
+#endif
+    cpi     token, USBPID_IN    ;[27]
+     230:	09 36       	cpi	r16, 0x69	; 105
+    breq    handleIn            ;[28]
+     232:	41 f1       	breq	.+80     	; 0x284 <handleIn>
+    cpi     token, USBPID_SETUP ;[29]
+     234:	0d 32       	cpi	r16, 0x2D	; 45
+    breq    handleSetupOrOut    ;[30]
+     236:	11 f0       	breq	.+4      	; 0x23c <handleSetupOrOut>
+    cpi     token, USBPID_OUT   ;[31]
+     238:	01 3e       	cpi	r16, 0xE1	; 225
+    brne    ignorePacket        ;[32] must be ack, nak or whatever
+     23a:	39 f7       	brne	.-50     	; 0x20a <ignorePacket>
+
+0000023c <handleSetupOrOut>:
+    andi    x3, 0xf             ;[32]
+    breq    storeTokenAndReturn ;[33]
+    mov     token, x3           ;[34] indicate that this is endpoint x OUT
+#endif
+storeTokenAndReturn:
+    sts     usbCurrentTok, token;[35]
+     23c:	00 93 90 02 	sts	0x0290, r16
+
+00000240 <doReturn>:
+doReturn:
+    POP_STANDARD                ;[37] 12...16 cycles
+     240:	3f 91       	pop	r19
+     242:	4f 91       	pop	r20
+     244:	1f 91       	pop	r17
+     246:	0f 91       	pop	r16
+     248:	2f 91       	pop	r18
+     24a:	df 91       	pop	r29
+    USB_LOAD_PENDING(YL)        ;[49]
+     24c:	ca b7       	in	r28, 0x3a	; 58
+    sbrc    YL, USB_INTR_PENDING_BIT;[50] check whether data is already arriving
+     24e:	c6 fd       	sbrc	r28, 6
+    rjmp    waitForJ            ;[51] save the pops and pushes -- a new interrupt is already pending
+     250:	51 cf       	rjmp	.-350    	; 0xf4 <waitForJ>
+
+00000252 <sofError>:
+sofError:
+    POP_RETI                    ;macro call
+     252:	cf 91       	pop	r28
+     254:	cf bf       	out	0x3f, r28	; 63
+     256:	cf 91       	pop	r28
+    reti
+     258:	18 95       	reti
+
+0000025a <handleData>:
+
+handleData:
+#if USB_CFG_CHECK_CRC
+    CRC_CLEANUP_AND_CHECK       ; jumps to ignorePacket if CRC error
+#endif
+    lds     shift, usbCurrentTok;[18]
+     25a:	20 91 90 02 	lds	r18, 0x0290
+    tst     shift               ;[20]
+     25e:	22 23       	and	r18, r18
+    breq    doReturn            ;[21]
+     260:	79 f3       	breq	.-34     	; 0x240 <doReturn>
+    lds     x2, usbRxLen        ;[22]
+     262:	10 91 8e 02 	lds	r17, 0x028E
+    tst     x2                  ;[24]
+     266:	11 23       	and	r17, r17
+    brne    sendNakAndReti      ;[25]
+     268:	11 f5       	brne	.+68     	; 0x2ae <sendNakAndReti>
+; 2006-03-11: The following two lines fix a problem where the device was not
+; recognized if usbPoll() was called less frequently than once every 4 ms.
+    cpi     cnt, 4              ;[26] zero sized data packets are status phase only -- ignore and ack
+     26a:	34 30       	cpi	r19, 0x04	; 4
+    brmi    sendAckAndReti      ;[27] keep rx buffer clean -- we must not NAK next SETUP
+     26c:	12 f1       	brmi	.+68     	; 0x2b2 <sendAckAndReti>
+#if USB_CFG_CHECK_DATA_TOGGLING
+    sts     usbCurrentDataToken, token  ; store for checking by C code
+#endif
+    sts     usbRxLen, cnt       ;[28] store received data, swap buffers
+     26e:	30 93 8e 02 	sts	0x028E, r19
+    sts     usbRxToken, shift   ;[30]
+     272:	20 93 8a 02 	sts	0x028A, r18
+    lds     x2, usbInputBufOffset;[32] swap buffers
+     276:	10 91 8b 02 	lds	r17, 0x028B
+    ldi     cnt, USB_BUFSIZE    ;[34]
+     27a:	3b e0       	ldi	r19, 0x0B	; 11
+    sub     cnt, x2             ;[35]
+     27c:	31 1b       	sub	r19, r17
+    sts     usbInputBufOffset, cnt;[36] buffers now swapped
+     27e:	30 93 8b 02 	sts	0x028B, r19
+    rjmp    sendAckAndReti      ;[38] 40 + 17 = 57 until SOP
+     282:	17 c0       	rjmp	.+46     	; 0x2b2 <sendAckAndReti>
+
+00000284 <handleIn>:
+
+handleIn:
+;We don't send any data as long as the C code has not processed the current
+;input data and potentially updated the output data. That's more efficient
+;in terms of code size than clearing the tx buffers when a packet is received.
+    lds     x1, usbRxLen        ;[30]
+     284:	00 91 8e 02 	lds	r16, 0x028E
+    cpi     x1, 1               ;[32] negative values are flow control, 0 means "buffer free"
+     288:	01 30       	cpi	r16, 0x01	; 1
+    brge    sendNakAndReti      ;[33] unprocessed input packet?
+     28a:	8c f4       	brge	.+34     	; 0x2ae <sendNakAndReti>
+    ldi     x1, USBPID_NAK      ;[34] prepare value for usbTxLen
+     28c:	0a e5       	ldi	r16, 0x5A	; 90
+    brne    sendNakAndReti      ;[36]
+#else
+    brne    handleIn1           ;[36]
+#endif
+#endif
+    lds     cnt, usbTxLen       ;[37]
+     28e:	30 91 61 00 	lds	r19, 0x0061
+    sbrc    cnt, 4              ;[39] all handshake tokens have bit 4 set
+     292:	34 fd       	sbrc	r19, 4
+    rjmp    sendCntAndReti      ;[40] 42 + 16 = 58 until SOP
+     294:	10 c0       	rjmp	.+32     	; 0x2b6 <sendCntAndReti>
+    sts     usbTxLen, x1        ;[41] x1 == USBPID_NAK from above
+     296:	00 93 61 00 	sts	0x0061, r16
+    ldi     YL, lo8(usbTxBuf)   ;[43]
+     29a:	ce e7       	ldi	r28, 0x7E	; 126
+    ldi     YH, hi8(usbTxBuf)   ;[44]
+     29c:	d2 e0       	ldi	r29, 0x02	; 2
+    rjmp    usbSendAndReti      ;[45] 57 + 12 = 59 until SOP
+     29e:	0f c0       	rjmp	.+30     	; 0x2be <usbSendAndReti>
+
+000002a0 <stuffN1Delay>:
+;----------------------------------------------------------------------------
+
+txByteLoop:
+txBitloop:
+stuffN1Delay:                   ;     [03]
+    ror     shift               ;[-5] [11] [59]
+     2a0:	27 95       	ror	r18
+    brcc    doExorN1            ;[-4]      [60]
+     2a2:	a8 f4       	brcc	.+42     	; 0x2ce <doExorN1>
+    subi    x4, 1               ;[-3]
+     2a4:	51 50       	subi	r21, 0x01	; 1
+    brne    commonN1            ;[-2]
+     2a6:	a9 f4       	brne	.+42     	; 0x2d2 <commonN1>
+    lsl     shift               ;[-1] compensate ror after rjmp stuffDelay
+     2a8:	22 0f       	add	r18, r18
+    nop                         ;[00] stuffing consists of just waiting 8 cycles
+     2aa:	00 00       	nop
+    rjmp    stuffN1Delay        ;[01] after ror, C bit is reliably clear
+     2ac:	f9 cf       	rjmp	.-14     	; 0x2a0 <stuffN1Delay>
+
+000002ae <sendNakAndReti>:
+
+sendNakAndReti:                 ;0 [-19] 19 cycles until SOP
+    ldi     x3, USBPID_NAK      ;1 [-18]
+     2ae:	4a e5       	ldi	r20, 0x5A	; 90
+    rjmp    usbSendX3           ;2 [-16]
+     2b0:	03 c0       	rjmp	.+6      	; 0x2b8 <usbSendX3>
+
+000002b2 <sendAckAndReti>:
+sendAckAndReti:                 ;0 [-19] 19 cycles until SOP
+    ldi     x3, USBPID_ACK      ;1 [-18]
+     2b2:	42 ed       	ldi	r20, 0xD2	; 210
+    rjmp    usbSendX3           ;2 [-16]
+     2b4:	01 c0       	rjmp	.+2      	; 0x2b8 <usbSendX3>
+
+000002b6 <sendCntAndReti>:
+sendCntAndReti:                 ;0 [-17] 17 cycles until SOP
+    mov     x3, cnt             ;1 [-16]
+     2b6:	43 2f       	mov	r20, r19
+
+000002b8 <usbSendX3>:
+usbSendX3:                      ;0 [-16]
+    ldi     YL, 20              ;1 [-15] 'x3' is R20
+     2b8:	c4 e1       	ldi	r28, 0x14	; 20
+    ldi     YH, 0               ;1 [-14]
+     2ba:	d0 e0       	ldi	r29, 0x00	; 0
+    ldi     cnt, 2              ;1 [-13]
+     2bc:	32 e0       	ldi	r19, 0x02	; 2
+
+000002be <usbSendAndReti>:
+;pointer to data in 'Y'
+;number of bytes in 'cnt' -- including sync byte
+;uses: x1...x2, x4, shift, cnt, Y [x1 = mirror USBOUT, x2 = USBMASK, x4 = bitstuff cnt]
+;Numbers in brackets are time since first bit of sync pattern is sent (start of instruction)
+usbSendAndReti:
+    in      x2, USBDDR          ;[-12] 12 cycles until SOP
+     2be:	11 b3       	in	r17, 0x11	; 17
+    ori     x2, USBMASK         ;[-11]
+     2c0:	14 61       	ori	r17, 0x14	; 20
+    sbi     USBOUT, USBMINUS    ;[-10] prepare idle state; D+ and D- must have been 0 (no pullups)
+     2c2:	94 9a       	sbi	0x12, 4	; 18
+    out     USBDDR, x2          ;[-8] <--- acquire bus
+     2c4:	11 bb       	out	0x11, r17	; 17
+    in      x1, USBOUT          ;[-7] port mirror for tx loop
+     2c6:	02 b3       	in	r16, 0x12	; 18
+    ldi     shift, 0x40         ;[-6] sync byte is first byte sent (we enter loop after ror)
+     2c8:	20 e4       	ldi	r18, 0x40	; 64
+    ldi     x2, USBMASK         ;[-5]
+     2ca:	14 e1       	ldi	r17, 0x14	; 20
+    push    x4                  ;[-4]
+     2cc:	5f 93       	push	r21
+
+000002ce <doExorN1>:
+doExorN1:
+    eor     x1, x2              ;[-2] [06] [62]
+     2ce:	01 27       	eor	r16, r17
+    ldi     x4, 6               ;[-1] [07] [63]
+     2d0:	56 e0       	ldi	r21, 0x06	; 6
+
+000002d2 <commonN1>:
+commonN1:
+stuffN2Delay:
+    out     USBOUT, x1          ;[00] [08] [64] <--- set bit
+     2d2:	02 bb       	out	0x12, r16	; 18
+    ror     shift               ;[01]
+     2d4:	27 95       	ror	r18
+    brcc    doExorN2            ;[02]
+     2d6:	20 f4       	brcc	.+8      	; 0x2e0 <doExorN2>
+    subi    x4, 1               ;[03]
+     2d8:	51 50       	subi	r21, 0x01	; 1
+    brne    commonN2            ;[04]
+     2da:	21 f4       	brne	.+8      	; 0x2e4 <commonN2>
+    lsl     shift               ;[05] compensate ror after rjmp stuffDelay
+     2dc:	22 0f       	add	r18, r18
+    rjmp    stuffN2Delay        ;[06] after ror, C bit is reliably clear
+     2de:	f9 cf       	rjmp	.-14     	; 0x2d2 <commonN1>
+
+000002e0 <doExorN2>:
+doExorN2:
+    eor     x1, x2              ;[04] [12]
+     2e0:	01 27       	eor	r16, r17
+    ldi     x4, 6               ;[05] [13]
+     2e2:	56 e0       	ldi	r21, 0x06	; 6
+
+000002e4 <commonN2>:
+commonN2:
+    nop                         ;[06] [14]
+     2e4:	00 00       	nop
+    subi    cnt, 171            ;[07] [15] trick: (3 * 171) & 0xff = 1
+     2e6:	3b 5a       	subi	r19, 0xAB	; 171
+    out     USBOUT, x1          ;[08] [16] <--- set bit
+     2e8:	02 bb       	out	0x12, r16	; 18
+    brcs    txBitloop           ;[09]      [25] [41]
+     2ea:	d0 f2       	brcs	.-76     	; 0x2a0 <stuffN1Delay>
+
+000002ec <stuff6Delay>:
+
+stuff6Delay:
+    ror     shift               ;[42] [50]
+     2ec:	27 95       	ror	r18
+    brcc    doExor6             ;[43]
+     2ee:	28 f4       	brcc	.+10     	; 0x2fa <doExor6>
+    subi    x4, 1               ;[44]
+     2f0:	51 50       	subi	r21, 0x01	; 1
+    brne    common6             ;[45]
+     2f2:	29 f4       	brne	.+10     	; 0x2fe <common6>
+    lsl     shift               ;[46] compensate ror after rjmp stuffDelay
+     2f4:	22 0f       	add	r18, r18
+    nop                         ;[47] stuffing consists of just waiting 8 cycles
+     2f6:	00 00       	nop
+    rjmp    stuff6Delay         ;[48] after ror, C bit is reliably clear
+     2f8:	f9 cf       	rjmp	.-14     	; 0x2ec <stuff6Delay>
+
+000002fa <doExor6>:
+doExor6:
+    eor     x1, x2              ;[45] [53]
+     2fa:	01 27       	eor	r16, r17
+    ldi     x4, 6               ;[46]
+     2fc:	56 e0       	ldi	r21, 0x06	; 6
+
+000002fe <common6>:
+common6:
+stuff7Delay:
+    ror     shift               ;[47] [55]
+     2fe:	27 95       	ror	r18
+    out     USBOUT, x1          ;[48] <--- set bit
+     300:	02 bb       	out	0x12, r16	; 18
+    brcc    doExor7             ;[49]
+     302:	20 f4       	brcc	.+8      	; 0x30c <doExor7>
+    subi    x4, 1               ;[50]
+     304:	51 50       	subi	r21, 0x01	; 1
+    brne    common7             ;[51]
+     306:	21 f4       	brne	.+8      	; 0x310 <common7>
+    lsl     shift               ;[52] compensate ror after rjmp stuffDelay
+     308:	22 0f       	add	r18, r18
+    rjmp    stuff7Delay         ;[53] after ror, C bit is reliably clear
+     30a:	f9 cf       	rjmp	.-14     	; 0x2fe <common6>
+
+0000030c <doExor7>:
+doExor7:
+    eor     x1, x2              ;[51] [59]
+     30c:	01 27       	eor	r16, r17
+    ldi     x4, 6               ;[52]
+     30e:	56 e0       	ldi	r21, 0x06	; 6
+
+00000310 <common7>:
+common7:
+    ld      shift, y+           ;[53]
+     310:	29 91       	ld	r18, Y+
+    tst     cnt                 ;[55]
+     312:	33 23       	and	r19, r19
+    out     USBOUT, x1          ;[56] <--- set bit
+     314:	02 bb       	out	0x12, r16	; 18
+    brne    txByteLoop          ;[57]
+     316:	21 f6       	brne	.-120    	; 0x2a0 <stuffN1Delay>
+
+;make SE0:
+    cbr     x1, USBMASK         ;[58] prepare SE0 [spec says EOP may be 15 to 18 cycles]
+     318:	0b 7e       	andi	r16, 0xEB	; 235
+    lds     x2, usbNewDeviceAddr;[59]
+     31a:	10 91 8f 02 	lds	r17, 0x028F
+    lsl     x2                  ;[61] we compare with left shifted address
+     31e:	11 0f       	add	r17, r17
+    subi    YL, 2 + 20          ;[62] Only assign address on data packets, not ACK/NAK in x3
+     320:	c6 51       	subi	r28, 0x16	; 22
+    sbci    YH, 0               ;[63]
+     322:	d0 40       	sbci	r29, 0x00	; 0
+    out     USBOUT, x1          ;[00] <-- out SE0 -- from now 2 bits = 16 cycles until bus idle
+     324:	02 bb       	out	0x12, r16	; 18
+;2006-03-06: moved transfer of new address to usbDeviceAddr from C-Code to asm:
+;set address only after data packet was sent, not after handshake
+    breq    skipAddrAssign      ;[01]
+     326:	11 f0       	breq	.+4      	; 0x32c <skipAddrAssign>
+    sts     usbDeviceAddr, x2   ; if not skipped: SE0 is one cycle longer
+     328:	10 93 89 02 	sts	0x0289, r17
+
+0000032c <skipAddrAssign>:
+skipAddrAssign:
+;end of usbDeviceAddress transfer
+    ldi     x2, 1<<USB_INTR_PENDING_BIT;[03] int0 occurred during TX -- clear pending flag
+     32c:	10 e4       	ldi	r17, 0x40	; 64
+    USB_STORE_PENDING(x2)       ;[04]
+     32e:	1a bf       	out	0x3a, r17	; 58
+    ori     x1, USBIDLE         ;[05]
+     330:	00 61       	ori	r16, 0x10	; 16
+    in      x2, USBDDR          ;[06]
+     332:	11 b3       	in	r17, 0x11	; 17
+    cbr     x2, USBMASK         ;[07] set both pins to input
+     334:	1b 7e       	andi	r17, 0xEB	; 235
+    mov     x3, x1              ;[08]
+     336:	40 2f       	mov	r20, r16
+    cbr     x3, USBMASK         ;[09] configure no pullup on both pins
+     338:	4b 7e       	andi	r20, 0xEB	; 235
+    pop     x4                  ;[10]
+     33a:	5f 91       	pop	r21
+    nop2                        ;[12]
+     33c:	00 c0       	rjmp	.+0      	; 0x33e <skipAddrAssign+0x12>
+    nop2                        ;[14]
+     33e:	00 c0       	rjmp	.+0      	; 0x340 <skipAddrAssign+0x14>
+    out     USBOUT, x1          ;[16] <-- out J (idle) -- end of SE0 (EOP signal)
+     340:	02 bb       	out	0x12, r16	; 18
+    out     USBDDR, x2          ;[17] <-- release bus now
+     342:	11 bb       	out	0x11, r17	; 17
+    out     USBOUT, x3          ;[18] <-- ensure no pull-up resistors are active
+     344:	42 bb       	out	0x12, r20	; 18
+    rjmp    doReturn
+     346:	7c cf       	rjmp	.-264    	; 0x240 <doReturn>
+
+00000348 <ir_send>:
+//checked
+int ir_send()
+{
+	
+	
+	if(irparams.issnd){
+     348:	80 91 7c 00 	lds	r24, 0x007C
+     34c:	90 91 7d 00 	lds	r25, 0x007D
+     350:	89 2b       	or	r24, r25
+     352:	21 f1       	breq	.+72     	; 0x39c <ir_send+0x54>
+		
+		
+		OCR1A = 40;
+     354:	88 e2       	ldi	r24, 0x28	; 40
+     356:	90 e0       	ldi	r25, 0x00	; 0
+     358:	9b bd       	out	0x2b, r25	; 43
+     35a:	8a bd       	out	0x2a, r24	; 42
+		OCR1B = 20;
+     35c:	84 e1       	ldi	r24, 0x14	; 20
+     35e:	90 e0       	ldi	r25, 0x00	; 0
+     360:	99 bd       	out	0x29, r25	; 41
+     362:	88 bd       	out	0x28, r24	; 40
+		
+		TCCR1A = (1 << COM1B1) | (1 << WGM11 ) | (1 << WGM10);
+     364:	83 e2       	ldi	r24, 0x23	; 35
+     366:	8f bd       	out	0x2f, r24	; 47
+		TCCR1B |= (1 << WGM13 ) | (1 << WGM12) | (1 << CS11);
+     368:	8e b5       	in	r24, 0x2e	; 46
+     36a:	8a 61       	ori	r24, 0x1A	; 26
+     36c:	8e bd       	out	0x2e, r24	; 46
+		
+		
+		TIMSK |= (1 << OCIE1A);
+     36e:	89 b7       	in	r24, 0x39	; 57
+     370:	80 61       	ori	r24, 0x10	; 16
+     372:	89 bf       	out	0x39, r24	; 57
+		
+		
+		irparams.sndok = 0;
+     374:	10 92 79 00 	sts	0x0079, r1
+     378:	10 92 78 00 	sts	0x0078, r1
+		irparams.issnd = 0;
+     37c:	10 92 7d 00 	sts	0x007D, r1
+     380:	10 92 7c 00 	sts	0x007C, r1
+		irparams.sndcounter = 0;
+     384:	10 92 6e 00 	sts	0x006E, r1
+     388:	10 92 6f 00 	sts	0x006F, r1
+     38c:	10 92 70 00 	sts	0x0070, r1
+     390:	10 92 71 00 	sts	0x0071, r1
+		irparams.bufcounter = 0;
+     394:	10 92 6b 00 	sts	0x006B, r1
+     398:	10 92 6a 00 	sts	0x006A, r1
+	}
+	
+	switch (BUFFERVALUE) {
+     39c:	80 91 6a 00 	lds	r24, 0x006A
+     3a0:	90 91 6b 00 	lds	r25, 0x006B
+     3a4:	9c 01       	movw	r18, r24
+     3a6:	21 70       	andi	r18, 0x01	; 1
+     3a8:	33 27       	eor	r19, r19
+     3aa:	80 ff       	sbrs	r24, 0
+     3ac:	05 c0       	rjmp	.+10     	; 0x3b8 <ir_send+0x70>
+     3ae:	21 30       	cpi	r18, 0x01	; 1
+     3b0:	31 05       	cpc	r19, r1
+     3b2:	09 f4       	brne	.+2      	; 0x3b6 <ir_send+0x6e>
+     3b4:	4f c0       	rjmp	.+158    	; 0x454 <ir_send+0x10c>
+     3b6:	9a c0       	rjmp	.+308    	; 0x4ec <__stack+0x8d>
+		case MARK:
+		if(irparams.sndcounter>=irparams.ircode[irparams.bufcounter]){
+     3b8:	40 91 6e 00 	lds	r20, 0x006E
+     3bc:	50 91 6f 00 	lds	r21, 0x006F
+     3c0:	60 91 70 00 	lds	r22, 0x0070
+     3c4:	70 91 71 00 	lds	r23, 0x0071
+     3c8:	e0 91 6a 00 	lds	r30, 0x006A
+     3cc:	f0 91 6b 00 	lds	r31, 0x006B
+     3d0:	ee 0f       	add	r30, r30
+     3d2:	ff 1f       	adc	r31, r31
+     3d4:	e0 58       	subi	r30, 0x80	; 128
+     3d6:	ff 4f       	sbci	r31, 0xFF	; 255
+     3d8:	80 81       	ld	r24, Z
+     3da:	91 81       	ldd	r25, Z+1	; 0x01
+     3dc:	a0 e0       	ldi	r26, 0x00	; 0
+     3de:	b0 e0       	ldi	r27, 0x00	; 0
+     3e0:	48 17       	cp	r20, r24
+     3e2:	59 07       	cpc	r21, r25
+     3e4:	6a 07       	cpc	r22, r26
+     3e6:	7b 07       	cpc	r23, r27
+     3e8:	90 f0       	brcs	.+36     	; 0x40e <ir_send+0xc6>
+			irparams.bufcounter++;
+     3ea:	ea e6       	ldi	r30, 0x6A	; 106
+     3ec:	f0 e0       	ldi	r31, 0x00	; 0
+     3ee:	80 81       	ld	r24, Z
+     3f0:	91 81       	ldd	r25, Z+1	; 0x01
+     3f2:	01 96       	adiw	r24, 0x01	; 1
+     3f4:	91 83       	std	Z+1, r25	; 0x01
+     3f6:	80 83       	st	Z, r24
+			TCCR1A &=  ~(1 << COM1B1);       // no OC1A output change
+     3f8:	8f b5       	in	r24, 0x2f	; 47
+     3fa:	8f 7d       	andi	r24, 0xDF	; 223
+     3fc:	8f bd       	out	0x2f, r24	; 47
+			irparams.sndcounter = 0;
+     3fe:	10 92 6e 00 	sts	0x006E, r1
+     402:	10 92 6f 00 	sts	0x006F, r1
+     406:	10 92 70 00 	sts	0x0070, r1
+     40a:	10 92 71 00 	sts	0x0071, r1
+		}
+		
+		if( irparams.bufcounter > irparams.lcounter){
+     40e:	20 91 6a 00 	lds	r18, 0x006A
+     412:	30 91 6b 00 	lds	r19, 0x006B
+     416:	80 91 6c 00 	lds	r24, 0x006C
+     41a:	90 91 6d 00 	lds	r25, 0x006D
+     41e:	82 17       	cp	r24, r18
+     420:	93 07       	cpc	r25, r19
+     422:	08 f0       	brcs	.+2      	; 0x426 <ir_send+0xde>
+     424:	63 c0       	rjmp	.+198    	; 0x4ec <__stack+0x8d>
+			
+			irparams.bufcounter = 0;
+     426:	10 92 6b 00 	sts	0x006B, r1
+     42a:	10 92 6a 00 	sts	0x006A, r1
+			irparams.sndcounter = 0;
+     42e:	10 92 6e 00 	sts	0x006E, r1
+     432:	10 92 6f 00 	sts	0x006F, r1
+     436:	10 92 70 00 	sts	0x0070, r1
+     43a:	10 92 71 00 	sts	0x0071, r1
+			irparams.repeat++;
+     43e:	e6 e7       	ldi	r30, 0x76	; 118
+     440:	f2 e0       	ldi	r31, 0x02	; 2
+     442:	80 81       	ld	r24, Z
+     444:	91 81       	ldd	r25, Z+1	; 0x01
+     446:	01 96       	adiw	r24, 0x01	; 1
+     448:	91 83       	std	Z+1, r25	; 0x01
+     44a:	80 83       	st	Z, r24
+			TCCR1A |= (1 << COM1B1);
+     44c:	8f b5       	in	r24, 0x2f	; 47
+     44e:	80 62       	ori	r24, 0x20	; 32
+     450:	8f bd       	out	0x2f, r24	; 47
+     452:	4c c0       	rjmp	.+152    	; 0x4ec <__stack+0x8d>
+		}
+		
+		break;
+		case SPACE:
+		
+		if(irparams.sndcounter>=irparams.ircode[irparams.bufcounter]){
+     454:	40 91 6e 00 	lds	r20, 0x006E
+     458:	50 91 6f 00 	lds	r21, 0x006F
+     45c:	60 91 70 00 	lds	r22, 0x0070
+     460:	70 91 71 00 	lds	r23, 0x0071
+     464:	e0 91 6a 00 	lds	r30, 0x006A
+     468:	f0 91 6b 00 	lds	r31, 0x006B
+     46c:	ee 0f       	add	r30, r30
+     46e:	ff 1f       	adc	r31, r31
+     470:	e0 58       	subi	r30, 0x80	; 128
+     472:	ff 4f       	sbci	r31, 0xFF	; 255
+     474:	80 81       	ld	r24, Z
+     476:	91 81       	ldd	r25, Z+1	; 0x01
+     478:	a0 e0       	ldi	r26, 0x00	; 0
+     47a:	b0 e0       	ldi	r27, 0x00	; 0
+     47c:	48 17       	cp	r20, r24
+     47e:	59 07       	cpc	r21, r25
+     480:	6a 07       	cpc	r22, r26
+     482:	7b 07       	cpc	r23, r27
+     484:	90 f0       	brcs	.+36     	; 0x4aa <__stack+0x4b>
+			irparams.bufcounter++;
+     486:	ea e6       	ldi	r30, 0x6A	; 106
+     488:	f0 e0       	ldi	r31, 0x00	; 0
+     48a:	80 81       	ld	r24, Z
+     48c:	91 81       	ldd	r25, Z+1	; 0x01
+     48e:	01 96       	adiw	r24, 0x01	; 1
+     490:	91 83       	std	Z+1, r25	; 0x01
+     492:	80 83       	st	Z, r24
+			TCCR1A |= (1 << COM1B1);
+     494:	8f b5       	in	r24, 0x2f	; 47
+     496:	80 62       	ori	r24, 0x20	; 32
+     498:	8f bd       	out	0x2f, r24	; 47
+			irparams.sndcounter = 0;
+     49a:	10 92 6e 00 	sts	0x006E, r1
+     49e:	10 92 6f 00 	sts	0x006F, r1
+     4a2:	10 92 70 00 	sts	0x0070, r1
+     4a6:	10 92 71 00 	sts	0x0071, r1
+		}
+		
+		if( irparams.bufcounter > irparams.lcounter){
+     4aa:	20 91 6a 00 	lds	r18, 0x006A
+     4ae:	30 91 6b 00 	lds	r19, 0x006B
+     4b2:	80 91 6c 00 	lds	r24, 0x006C
+     4b6:	90 91 6d 00 	lds	r25, 0x006D
+     4ba:	82 17       	cp	r24, r18
+     4bc:	93 07       	cpc	r25, r19
+     4be:	b0 f4       	brcc	.+44     	; 0x4ec <__stack+0x8d>
+			
+			irparams.bufcounter = 0;
+     4c0:	10 92 6b 00 	sts	0x006B, r1
+     4c4:	10 92 6a 00 	sts	0x006A, r1
+			irparams.sndcounter = 0;
+     4c8:	10 92 6e 00 	sts	0x006E, r1
+     4cc:	10 92 6f 00 	sts	0x006F, r1
+     4d0:	10 92 70 00 	sts	0x0070, r1
+     4d4:	10 92 71 00 	sts	0x0071, r1
+			irparams.repeat++;
+     4d8:	e6 e7       	ldi	r30, 0x76	; 118
+     4da:	f2 e0       	ldi	r31, 0x02	; 2
+     4dc:	80 81       	ld	r24, Z
+     4de:	91 81       	ldd	r25, Z+1	; 0x01
+     4e0:	01 96       	adiw	r24, 0x01	; 1
+     4e2:	91 83       	std	Z+1, r25	; 0x01
+     4e4:	80 83       	st	Z, r24
+			TCCR1A |= (1 << COM1B1);
+     4e6:	8f b5       	in	r24, 0x2f	; 47
+     4e8:	80 62       	ori	r24, 0x20	; 32
+     4ea:	8f bd       	out	0x2f, r24	; 47
+		
+		break;
+		
+	};
+	
+	if(irparams.repeat > 0) {
+     4ec:	80 91 76 02 	lds	r24, 0x0276
+     4f0:	90 91 77 02 	lds	r25, 0x0277
+     4f4:	89 2b       	or	r24, r25
+     4f6:	b9 f0       	breq	.+46     	; 0x526 <__stack+0xc7>
+		TCCR1A = 0;
+     4f8:	1f bc       	out	0x2f, r1	; 47
+		TCCR1B = 0;
+     4fa:	1e bc       	out	0x2e, r1	; 46
+		TIMSK &= ~(1 << OCIE1A);
+     4fc:	89 b7       	in	r24, 0x39	; 57
+     4fe:	8f 7e       	andi	r24, 0xEF	; 239
+     500:	89 bf       	out	0x39, r24	; 57
+		irparams.sndok = 1;
+     502:	81 e0       	ldi	r24, 0x01	; 1
+     504:	90 e0       	ldi	r25, 0x00	; 0
+     506:	90 93 79 00 	sts	0x0079, r25
+     50a:	80 93 78 00 	sts	0x0078, r24
+		irparams.issnd = 1;
+     50e:	90 93 7d 00 	sts	0x007D, r25
+     512:	80 93 7c 00 	sts	0x007C, r24
+		irparams.lcounter = 0;
+     516:	10 92 6d 00 	sts	0x006D, r1
+     51a:	10 92 6c 00 	sts	0x006C, r1
+		irparams.repeat = 0;
+     51e:	10 92 77 02 	sts	0x0277, r1
+     522:	10 92 76 02 	sts	0x0276, r1
+		
+	}
+	return irparams.issnd;
+     526:	80 91 7c 00 	lds	r24, 0x007C
+     52a:	90 91 7d 00 	lds	r25, 0x007D
+
+}
+     52e:	08 95       	ret
+
+00000530 <ir_rec>:
+
+
+
+
+int ir_rec(){                  // source = 0 from remote, 1 from device
+     530:	0f 93       	push	r16
+     532:	1f 93       	push	r17
+     534:	cf 93       	push	r28
+     536:	df 93       	push	r29
+	if(irparams.isrec){
+     538:	80 91 7a 00 	lds	r24, 0x007A
+     53c:	90 91 7b 00 	lds	r25, 0x007B
+     540:	89 2b       	or	r24, r25
+     542:	d9 f1       	breq	.+118    	; 0x5ba <ir_rec+0x8a>
+		irparams.rintstate = READY;
+     544:	81 e0       	ldi	r24, 0x01	; 1
+     546:	90 e0       	ldi	r25, 0x00	; 0
+     548:	90 93 7f 00 	sts	0x007F, r25
+     54c:	80 93 7e 00 	sts	0x007E, r24
+		irparams.isrec = 0;
+     550:	10 92 7b 00 	sts	0x007B, r1
+     554:	10 92 7a 00 	sts	0x007A, r1
+		irparams.inirec = 0;
+     558:	10 92 79 02 	sts	0x0279, r1
+     55c:	10 92 78 02 	sts	0x0278, r1
+		irparams.lcounter = 0;
+     560:	10 92 6d 00 	sts	0x006D, r1
+     564:	10 92 6c 00 	sts	0x006C, r1
+		irparams.rcvstate = IDLE;
+     568:	83 e0       	ldi	r24, 0x03	; 3
+     56a:	90 e0       	ldi	r25, 0x00	; 0
+     56c:	90 93 67 00 	sts	0x0067, r25
+     570:	80 93 66 00 	sts	0x0066, r24
+		irparams.rcvok = 0;
+     574:	10 92 77 00 	sts	0x0077, r1
+     578:	10 92 76 00 	sts	0x0076, r1
+		irparams.bitcounter = 0;
+     57c:	10 92 69 00 	sts	0x0069, r1
+     580:	10 92 68 00 	sts	0x0068, r1
+		irparams.sndcounter = 0;
+     584:	10 92 6e 00 	sts	0x006E, r1
+     588:	10 92 6f 00 	sts	0x006F, r1
+     58c:	10 92 70 00 	sts	0x0070, r1
+     590:	10 92 71 00 	sts	0x0071, r1
+		
+		cli();
+     594:	f8 94       	cli
+		//TCCR1A = 0;	//(1 << WGM11 ) | (1 << WGM10);
+		TCCR1A = (1 << WGM11 ) | (1 << WGM10);
+     596:	8f bd       	out	0x2f, r24	; 47
+		//TCCR1B |= (1 << CS11); //(1 << WGM13 ) | (1 << WGM12) | (1 << CS11);
+		TCCR1B |= (1 << WGM13 ) | (1 << WGM12) | (1 << CS11);
+     598:	8e b5       	in	r24, 0x2e	; 46
+     59a:	8a 61       	ori	r24, 0x1A	; 26
+     59c:	8e bd       	out	0x2e, r24	; 46
+		OCR1A = 40;
+     59e:	88 e2       	ldi	r24, 0x28	; 40
+     5a0:	90 e0       	ldi	r25, 0x00	; 0
+     5a2:	9b bd       	out	0x2b, r25	; 43
+     5a4:	8a bd       	out	0x2a, r24	; 42
+		GICR |= 1 << INT1;
+     5a6:	8b b7       	in	r24, 0x3b	; 59
+     5a8:	80 68       	ori	r24, 0x80	; 128
+     5aa:	8b bf       	out	0x3b, r24	; 59
+		
+		anyEdgeInt1;
+     5ac:	85 b7       	in	r24, 0x35	; 53
+     5ae:	84 60       	ori	r24, 0x04	; 4
+     5b0:	85 bf       	out	0x35, r24	; 53
+		
+		//TIMSK |= (1 << TOIE1);//(1 << OCIE1A);
+		TIMSK |= (1 << OCIE1A);
+     5b2:	89 b7       	in	r24, 0x39	; 57
+     5b4:	80 61       	ori	r24, 0x10	; 16
+     5b6:	89 bf       	out	0x39, r24	; 57
+		
+		sei();
+     5b8:	78 94       	sei
+		// enable global interrupts
+		
+		
+	}
+
+	if(irparams.rintstate == GO){
+     5ba:	80 91 7e 00 	lds	r24, 0x007E
+     5be:	90 91 7f 00 	lds	r25, 0x007F
+     5c2:	02 97       	sbiw	r24, 0x02	; 2
+     5c4:	09 f0       	breq	.+2      	; 0x5c8 <ir_rec+0x98>
+     5c6:	15 c2       	rjmp	.+1066   	; 0x9f2 <ir_rec+0x4c2>
+		
+		switch (irparams.rcvstate) {
+     5c8:	80 91 66 00 	lds	r24, 0x0066
+     5cc:	90 91 67 00 	lds	r25, 0x0067
+     5d0:	84 30       	cpi	r24, 0x04	; 4
+     5d2:	91 05       	cpc	r25, r1
+     5d4:	b1 f1       	breq	.+108    	; 0x642 <ir_rec+0x112>
+     5d6:	30 f4       	brcc	.+12     	; 0x5e4 <ir_rec+0xb4>
+     5d8:	00 97       	sbiw	r24, 0x00	; 0
+     5da:	09 f4       	brne	.+2      	; 0x5de <ir_rec+0xae>
+     5dc:	cc c1       	rjmp	.+920    	; 0x976 <ir_rec+0x446>
+     5de:	03 97       	sbiw	r24, 0x03	; 3
+     5e0:	59 f0       	breq	.+22     	; 0x5f8 <ir_rec+0xc8>
+     5e2:	07 c2       	rjmp	.+1038   	; 0x9f2 <ir_rec+0x4c2>
+     5e4:	86 30       	cpi	r24, 0x06	; 6
+     5e6:	91 05       	cpc	r25, r1
+     5e8:	09 f4       	brne	.+2      	; 0x5ec <ir_rec+0xbc>
+     5ea:	d9 c0       	rjmp	.+434    	; 0x79e <ir_rec+0x26e>
+     5ec:	08 f4       	brcc	.+2      	; 0x5f0 <ir_rec+0xc0>
+     5ee:	80 c0       	rjmp	.+256    	; 0x6f0 <ir_rec+0x1c0>
+     5f0:	07 97       	sbiw	r24, 0x07	; 7
+     5f2:	09 f4       	brne	.+2      	; 0x5f6 <ir_rec+0xc6>
+     5f4:	2b c1       	rjmp	.+598    	; 0x84c <ir_rec+0x31c>
+     5f6:	fd c1       	rjmp	.+1018   	; 0x9f2 <ir_rec+0x4c2>
+			case IDLE:
+			
+			irparams.lcounter = 0;
+     5f8:	10 92 6d 00 	sts	0x006D, r1
+     5fc:	10 92 6c 00 	sts	0x006C, r1
+			irparams.bufcounter = 0;
+     600:	10 92 6b 00 	sts	0x006B, r1
+     604:	10 92 6a 00 	sts	0x006A, r1
+			irparams.rcvcounter = 0;
+     608:	10 92 72 00 	sts	0x0072, r1
+     60c:	10 92 73 00 	sts	0x0073, r1
+     610:	10 92 74 00 	sts	0x0074, r1
+     614:	10 92 75 00 	sts	0x0075, r1
+			irparams.bitcounter = 0;
+     618:	10 92 69 00 	sts	0x0069, r1
+     61c:	10 92 68 00 	sts	0x0068, r1
+			irparams.rcvstate = STOPH;
+     620:	84 e0       	ldi	r24, 0x04	; 4
+     622:	90 e0       	ldi	r25, 0x00	; 0
+     624:	90 93 67 00 	sts	0x0067, r25
+     628:	80 93 66 00 	sts	0x0066, r24
+			irparams.inirec = 0;
+     62c:	10 92 79 02 	sts	0x0279, r1
+     630:	10 92 78 02 	sts	0x0278, r1
+			irparams.rintstate = READY;
+     634:	81 e0       	ldi	r24, 0x01	; 1
+     636:	90 e0       	ldi	r25, 0x00	; 0
+     638:	90 93 7f 00 	sts	0x007F, r25
+     63c:	80 93 7e 00 	sts	0x007E, r24
+			
+			break;
+     640:	d8 c1       	rjmp	.+944    	; 0x9f2 <ir_rec+0x4c2>
+			case STOPH:
+			if( (irparams.rcvcounter > STARTMIN) && (irparams.rcvcounter < STARTMAX)){
+     642:	80 91 72 00 	lds	r24, 0x0072
+     646:	90 91 73 00 	lds	r25, 0x0073
+     64a:	a0 91 74 00 	lds	r26, 0x0074
+     64e:	b0 91 75 00 	lds	r27, 0x0075
+     652:	08 97       	sbiw	r24, 0x08	; 8
+     654:	a1 05       	cpc	r26, r1
+     656:	b1 05       	cpc	r27, r1
+     658:	e0 f1       	brcs	.+120    	; 0x6d2 <ir_rec+0x1a2>
+     65a:	80 91 72 00 	lds	r24, 0x0072
+     65e:	90 91 73 00 	lds	r25, 0x0073
+     662:	a0 91 74 00 	lds	r26, 0x0074
+     666:	b0 91 75 00 	lds	r27, 0x0075
+     66a:	8c 3b       	cpi	r24, 0xBC	; 188
+     66c:	91 40       	sbci	r25, 0x01	; 1
+     66e:	a1 05       	cpc	r26, r1
+     670:	b1 05       	cpc	r27, r1
+     672:	78 f5       	brcc	.+94     	; 0x6d2 <ir_rec+0x1a2>
+				
+				irparams.ircode[irparams.bufcounter] = irparams.rcvcounter;
+     674:	ea e6       	ldi	r30, 0x6A	; 106
+     676:	f0 e0       	ldi	r31, 0x00	; 0
+     678:	40 81       	ld	r20, Z
+     67a:	51 81       	ldd	r21, Z+1	; 0x01
+     67c:	c2 e7       	ldi	r28, 0x72	; 114
+     67e:	d0 e0       	ldi	r29, 0x00	; 0
+     680:	08 81       	ld	r16, Y
+     682:	19 81       	ldd	r17, Y+1	; 0x01
+     684:	2a 81       	ldd	r18, Y+2	; 0x02
+     686:	3b 81       	ldd	r19, Y+3	; 0x03
+     688:	44 0f       	add	r20, r20
+     68a:	55 1f       	adc	r21, r21
+     68c:	40 58       	subi	r20, 0x80	; 128
+     68e:	5f 4f       	sbci	r21, 0xFF	; 255
+     690:	da 01       	movw	r26, r20
+     692:	11 96       	adiw	r26, 0x01	; 1
+     694:	1c 93       	st	X, r17
+     696:	0e 93       	st	-X, r16
+
+				irparams.bufcounter++;
+     698:	80 81       	ld	r24, Z
+     69a:	91 81       	ldd	r25, Z+1	; 0x01
+     69c:	01 96       	adiw	r24, 0x01	; 1
+     69e:	91 83       	std	Z+1, r25	; 0x01
+     6a0:	80 83       	st	Z, r24
+				irparams.lcounter++;
+     6a2:	ec e6       	ldi	r30, 0x6C	; 108
+     6a4:	f0 e0       	ldi	r31, 0x00	; 0
+     6a6:	80 81       	ld	r24, Z
+     6a8:	91 81       	ldd	r25, Z+1	; 0x01
+     6aa:	01 96       	adiw	r24, 0x01	; 1
+     6ac:	91 83       	std	Z+1, r25	; 0x01
+     6ae:	80 83       	st	Z, r24
+				irparams.rcvcounter = 0;
+     6b0:	18 82       	st	Y, r1
+     6b2:	19 82       	std	Y+1, r1	; 0x01
+     6b4:	1a 82       	std	Y+2, r1	; 0x02
+     6b6:	1b 82       	std	Y+3, r1	; 0x03
+				irparams.rcvstate = STOPL;
+     6b8:	85 e0       	ldi	r24, 0x05	; 5
+     6ba:	90 e0       	ldi	r25, 0x00	; 0
+     6bc:	90 93 67 00 	sts	0x0067, r25
+     6c0:	80 93 66 00 	sts	0x0066, r24
+				irparams.rintstate = READY;
+     6c4:	81 e0       	ldi	r24, 0x01	; 1
+     6c6:	90 e0       	ldi	r25, 0x00	; 0
+     6c8:	90 93 7f 00 	sts	0x007F, r25
+     6cc:	80 93 7e 00 	sts	0x007E, r24
+     6d0:	90 c1       	rjmp	.+800    	; 0x9f2 <ir_rec+0x4c2>
+				
+			}
+			else{
+				irparams.rcvstate = RELEASE;
+     6d2:	10 92 67 00 	sts	0x0067, r1
+     6d6:	10 92 66 00 	sts	0x0066, r1
+				irparams.rintstate = READY;
+     6da:	81 e0       	ldi	r24, 0x01	; 1
+     6dc:	90 e0       	ldi	r25, 0x00	; 0
+     6de:	90 93 7f 00 	sts	0x007F, r25
+     6e2:	80 93 7e 00 	sts	0x007E, r24
+				irparams.rcvok = 0;
+     6e6:	10 92 77 00 	sts	0x0077, r1
+     6ea:	10 92 76 00 	sts	0x0076, r1
+     6ee:	81 c1       	rjmp	.+770    	; 0x9f2 <ir_rec+0x4c2>
+				
+			}
+			break;
+			case STOPL:
+			if(irparams.rcvcounter > (SPACEMIN) && irparams.rcvcounter < (SPACEMAX)){
+     6f0:	80 91 72 00 	lds	r24, 0x0072
+     6f4:	90 91 73 00 	lds	r25, 0x0073
+     6f8:	a0 91 74 00 	lds	r26, 0x0074
+     6fc:	b0 91 75 00 	lds	r27, 0x0075
+     700:	04 97       	sbiw	r24, 0x04	; 4
+     702:	a1 05       	cpc	r26, r1
+     704:	b1 05       	cpc	r27, r1
+     706:	e0 f1       	brcs	.+120    	; 0x780 <ir_rec+0x250>
+     708:	80 91 72 00 	lds	r24, 0x0072
+     70c:	90 91 73 00 	lds	r25, 0x0073
+     710:	a0 91 74 00 	lds	r26, 0x0074
+     714:	b0 91 75 00 	lds	r27, 0x0075
+     718:	89 3c       	cpi	r24, 0xC9	; 201
+     71a:	95 40       	sbci	r25, 0x05	; 5
+     71c:	a1 05       	cpc	r26, r1
+     71e:	b1 05       	cpc	r27, r1
+     720:	78 f5       	brcc	.+94     	; 0x780 <ir_rec+0x250>
+				
+				irparams.ircode[irparams.bufcounter] = irparams.rcvcounter;
+     722:	ea e6       	ldi	r30, 0x6A	; 106
+     724:	f0 e0       	ldi	r31, 0x00	; 0
+     726:	40 81       	ld	r20, Z
+     728:	51 81       	ldd	r21, Z+1	; 0x01
+     72a:	c2 e7       	ldi	r28, 0x72	; 114
+     72c:	d0 e0       	ldi	r29, 0x00	; 0
+     72e:	08 81       	ld	r16, Y
+     730:	19 81       	ldd	r17, Y+1	; 0x01
+     732:	2a 81       	ldd	r18, Y+2	; 0x02
+     734:	3b 81       	ldd	r19, Y+3	; 0x03
+     736:	44 0f       	add	r20, r20
+     738:	55 1f       	adc	r21, r21
+     73a:	40 58       	subi	r20, 0x80	; 128
+     73c:	5f 4f       	sbci	r21, 0xFF	; 255
+     73e:	da 01       	movw	r26, r20
+     740:	11 96       	adiw	r26, 0x01	; 1
+     742:	1c 93       	st	X, r17
+     744:	0e 93       	st	-X, r16
+				irparams.bufcounter++;
+     746:	80 81       	ld	r24, Z
+     748:	91 81       	ldd	r25, Z+1	; 0x01
+     74a:	01 96       	adiw	r24, 0x01	; 1
+     74c:	91 83       	std	Z+1, r25	; 0x01
+     74e:	80 83       	st	Z, r24
+				irparams.lcounter++;
+     750:	ec e6       	ldi	r30, 0x6C	; 108
+     752:	f0 e0       	ldi	r31, 0x00	; 0
+     754:	80 81       	ld	r24, Z
+     756:	91 81       	ldd	r25, Z+1	; 0x01
+     758:	01 96       	adiw	r24, 0x01	; 1
+     75a:	91 83       	std	Z+1, r25	; 0x01
+     75c:	80 83       	st	Z, r24
+				irparams.rcvcounter = 0;
+     75e:	18 82       	st	Y, r1
+     760:	19 82       	std	Y+1, r1	; 0x01
+     762:	1a 82       	std	Y+2, r1	; 0x02
+     764:	1b 82       	std	Y+3, r1	; 0x03
+				irparams.rcvstate = BITMARK;
+     766:	86 e0       	ldi	r24, 0x06	; 6
+     768:	90 e0       	ldi	r25, 0x00	; 0
+     76a:	90 93 67 00 	sts	0x0067, r25
+     76e:	80 93 66 00 	sts	0x0066, r24
+				irparams.rintstate = READY;
+     772:	81 e0       	ldi	r24, 0x01	; 1
+     774:	90 e0       	ldi	r25, 0x00	; 0
+     776:	90 93 7f 00 	sts	0x007F, r25
+     77a:	80 93 7e 00 	sts	0x007E, r24
+     77e:	39 c1       	rjmp	.+626    	; 0x9f2 <ir_rec+0x4c2>
+			}
+
+			else{
+				irparams.rcvstate = RELEASE;
+     780:	10 92 67 00 	sts	0x0067, r1
+     784:	10 92 66 00 	sts	0x0066, r1
+				irparams.rintstate = READY;
+     788:	81 e0       	ldi	r24, 0x01	; 1
+     78a:	90 e0       	ldi	r25, 0x00	; 0
+     78c:	90 93 7f 00 	sts	0x007F, r25
+     790:	80 93 7e 00 	sts	0x007E, r24
+				irparams.rcvok = 0;
+     794:	10 92 77 00 	sts	0x0077, r1
+     798:	10 92 76 00 	sts	0x0076, r1
+     79c:	2a c1       	rjmp	.+596    	; 0x9f2 <ir_rec+0x4c2>
+				
+			}
+			break;
+			case BITMARK:
+			if(irparams.rcvcounter > (BITMARKMIN) && irparams.rcvcounter < (BITMARKMAX)){
+     79e:	80 91 72 00 	lds	r24, 0x0072
+     7a2:	90 91 73 00 	lds	r25, 0x0073
+     7a6:	a0 91 74 00 	lds	r26, 0x0074
+     7aa:	b0 91 75 00 	lds	r27, 0x0075
+     7ae:	04 97       	sbiw	r24, 0x04	; 4
+     7b0:	a1 05       	cpc	r26, r1
+     7b2:	b1 05       	cpc	r27, r1
+     7b4:	e0 f1       	brcs	.+120    	; 0x82e <ir_rec+0x2fe>
+     7b6:	80 91 72 00 	lds	r24, 0x0072
+     7ba:	90 91 73 00 	lds	r25, 0x0073
+     7be:	a0 91 74 00 	lds	r26, 0x0074
+     7c2:	b0 91 75 00 	lds	r27, 0x0075
+     7c6:	8c 3b       	cpi	r24, 0xBC	; 188
+     7c8:	91 40       	sbci	r25, 0x01	; 1
+     7ca:	a1 05       	cpc	r26, r1
+     7cc:	b1 05       	cpc	r27, r1
+     7ce:	78 f5       	brcc	.+94     	; 0x82e <ir_rec+0x2fe>
+				
+				irparams.ircode[irparams.bufcounter] = irparams.rcvcounter;
+     7d0:	ea e6       	ldi	r30, 0x6A	; 106
+     7d2:	f0 e0       	ldi	r31, 0x00	; 0
+     7d4:	40 81       	ld	r20, Z
+     7d6:	51 81       	ldd	r21, Z+1	; 0x01
+     7d8:	c2 e7       	ldi	r28, 0x72	; 114
+     7da:	d0 e0       	ldi	r29, 0x00	; 0
+     7dc:	08 81       	ld	r16, Y
+     7de:	19 81       	ldd	r17, Y+1	; 0x01
+     7e0:	2a 81       	ldd	r18, Y+2	; 0x02
+     7e2:	3b 81       	ldd	r19, Y+3	; 0x03
+     7e4:	44 0f       	add	r20, r20
+     7e6:	55 1f       	adc	r21, r21
+     7e8:	40 58       	subi	r20, 0x80	; 128
+     7ea:	5f 4f       	sbci	r21, 0xFF	; 255
+     7ec:	da 01       	movw	r26, r20
+     7ee:	11 96       	adiw	r26, 0x01	; 1
+     7f0:	1c 93       	st	X, r17
+     7f2:	0e 93       	st	-X, r16
+				irparams.bufcounter++;
+     7f4:	80 81       	ld	r24, Z
+     7f6:	91 81       	ldd	r25, Z+1	; 0x01
+     7f8:	01 96       	adiw	r24, 0x01	; 1
+     7fa:	91 83       	std	Z+1, r25	; 0x01
+     7fc:	80 83       	st	Z, r24
+				irparams.lcounter++;
+     7fe:	ec e6       	ldi	r30, 0x6C	; 108
+     800:	f0 e0       	ldi	r31, 0x00	; 0
+     802:	80 81       	ld	r24, Z
+     804:	91 81       	ldd	r25, Z+1	; 0x01
+     806:	01 96       	adiw	r24, 0x01	; 1
+     808:	91 83       	std	Z+1, r25	; 0x01
+     80a:	80 83       	st	Z, r24
+				irparams.rcvcounter = 0;
+     80c:	18 82       	st	Y, r1
+     80e:	19 82       	std	Y+1, r1	; 0x01
+     810:	1a 82       	std	Y+2, r1	; 0x02
+     812:	1b 82       	std	Y+3, r1	; 0x03
+				irparams.rcvstate = BITSPACE;
+     814:	87 e0       	ldi	r24, 0x07	; 7
+     816:	90 e0       	ldi	r25, 0x00	; 0
+     818:	90 93 67 00 	sts	0x0067, r25
+     81c:	80 93 66 00 	sts	0x0066, r24
+				irparams.rintstate = READY;
+     820:	81 e0       	ldi	r24, 0x01	; 1
+     822:	90 e0       	ldi	r25, 0x00	; 0
+     824:	90 93 7f 00 	sts	0x007F, r25
+     828:	80 93 7e 00 	sts	0x007E, r24
+     82c:	e2 c0       	rjmp	.+452    	; 0x9f2 <ir_rec+0x4c2>
+			}
+			else{
+				irparams.rcvstate = RELEASE;
+     82e:	10 92 67 00 	sts	0x0067, r1
+     832:	10 92 66 00 	sts	0x0066, r1
+				irparams.rintstate = READY;
+     836:	81 e0       	ldi	r24, 0x01	; 1
+     838:	90 e0       	ldi	r25, 0x00	; 0
+     83a:	90 93 7f 00 	sts	0x007F, r25
+     83e:	80 93 7e 00 	sts	0x007E, r24
+				irparams.rcvok = 0;
+     842:	10 92 77 00 	sts	0x0077, r1
+     846:	10 92 76 00 	sts	0x0076, r1
+     84a:	d3 c0       	rjmp	.+422    	; 0x9f2 <ir_rec+0x4c2>
+			}
+			break;
+			case BITSPACE:
+			if(irparams.rcvcounter > (BITSPACEMIN) && irparams.rcvcounter < (BITSPACEMAX)){
+     84c:	80 91 72 00 	lds	r24, 0x0072
+     850:	90 91 73 00 	lds	r25, 0x0073
+     854:	a0 91 74 00 	lds	r26, 0x0074
+     858:	b0 91 75 00 	lds	r27, 0x0075
+     85c:	04 97       	sbiw	r24, 0x04	; 4
+     85e:	a1 05       	cpc	r26, r1
+     860:	b1 05       	cpc	r27, r1
+     862:	08 f4       	brcc	.+2      	; 0x866 <ir_rec+0x336>
+     864:	79 c0       	rjmp	.+242    	; 0x958 <ir_rec+0x428>
+     866:	80 91 72 00 	lds	r24, 0x0072
+     86a:	90 91 73 00 	lds	r25, 0x0073
+     86e:	a0 91 74 00 	lds	r26, 0x0074
+     872:	b0 91 75 00 	lds	r27, 0x0075
+     876:	81 30       	cpi	r24, 0x01	; 1
+     878:	9d 40       	sbci	r25, 0x0D	; 13
+     87a:	a1 05       	cpc	r26, r1
+     87c:	b1 05       	cpc	r27, r1
+     87e:	08 f0       	brcs	.+2      	; 0x882 <ir_rec+0x352>
+     880:	6b c0       	rjmp	.+214    	; 0x958 <ir_rec+0x428>
+				irparams.ircode[irparams.bufcounter] = irparams.rcvcounter;
+     882:	ea e6       	ldi	r30, 0x6A	; 106
+     884:	f0 e0       	ldi	r31, 0x00	; 0
+     886:	40 81       	ld	r20, Z
+     888:	51 81       	ldd	r21, Z+1	; 0x01
+     88a:	c2 e7       	ldi	r28, 0x72	; 114
+     88c:	d0 e0       	ldi	r29, 0x00	; 0
+     88e:	08 81       	ld	r16, Y
+     890:	19 81       	ldd	r17, Y+1	; 0x01
+     892:	2a 81       	ldd	r18, Y+2	; 0x02
+     894:	3b 81       	ldd	r19, Y+3	; 0x03
+     896:	44 0f       	add	r20, r20
+     898:	55 1f       	adc	r21, r21
+     89a:	40 58       	subi	r20, 0x80	; 128
+     89c:	5f 4f       	sbci	r21, 0xFF	; 255
+     89e:	da 01       	movw	r26, r20
+     8a0:	11 96       	adiw	r26, 0x01	; 1
+     8a2:	1c 93       	st	X, r17
+     8a4:	0e 93       	st	-X, r16
+				irparams.bufcounter++;
+     8a6:	80 81       	ld	r24, Z
+     8a8:	91 81       	ldd	r25, Z+1	; 0x01
+     8aa:	01 96       	adiw	r24, 0x01	; 1
+     8ac:	91 83       	std	Z+1, r25	; 0x01
+     8ae:	80 83       	st	Z, r24
+				irparams.lcounter++;
+     8b0:	ec e6       	ldi	r30, 0x6C	; 108
+     8b2:	f0 e0       	ldi	r31, 0x00	; 0
+     8b4:	80 81       	ld	r24, Z
+     8b6:	91 81       	ldd	r25, Z+1	; 0x01
+     8b8:	01 96       	adiw	r24, 0x01	; 1
+     8ba:	91 83       	std	Z+1, r25	; 0x01
+     8bc:	80 83       	st	Z, r24
+				irparams.rcvcounter = 0;
+     8be:	18 82       	st	Y, r1
+     8c0:	19 82       	std	Y+1, r1	; 0x01
+     8c2:	1a 82       	std	Y+2, r1	; 0x02
+     8c4:	1b 82       	std	Y+3, r1	; 0x03
+				irparams.bitcounter++;
+     8c6:	e8 e6       	ldi	r30, 0x68	; 104
+     8c8:	f0 e0       	ldi	r31, 0x00	; 0
+     8ca:	80 81       	ld	r24, Z
+     8cc:	91 81       	ldd	r25, Z+1	; 0x01
+     8ce:	01 96       	adiw	r24, 0x01	; 1
+     8d0:	91 83       	std	Z+1, r25	; 0x01
+     8d2:	80 83       	st	Z, r24
+				if(irparams.bitcounter < NBITSMAX){
+     8d4:	80 81       	ld	r24, Z
+     8d6:	91 81       	ldd	r25, Z+1	; 0x01
+     8d8:	84 36       	cpi	r24, 0x64	; 100
+     8da:	91 05       	cpc	r25, r1
+     8dc:	68 f4       	brcc	.+26     	; 0x8f8 <ir_rec+0x3c8>
+					irparams.rcvstate = BITMARK;
+     8de:	86 e0       	ldi	r24, 0x06	; 6
+     8e0:	90 e0       	ldi	r25, 0x00	; 0
+     8e2:	90 93 67 00 	sts	0x0067, r25
+     8e6:	80 93 66 00 	sts	0x0066, r24
+					irparams.rintstate = READY;
+     8ea:	81 e0       	ldi	r24, 0x01	; 1
+     8ec:	90 e0       	ldi	r25, 0x00	; 0
+     8ee:	90 93 7f 00 	sts	0x007F, r25
+     8f2:	80 93 7e 00 	sts	0x007E, r24
+     8f6:	7d c0       	rjmp	.+250    	; 0x9f2 <ir_rec+0x4c2>
+					} else {
+					TCCR1A = 0;
+     8f8:	1f bc       	out	0x2f, r1	; 47
+					TCCR1B = 0;
+     8fa:	1e bc       	out	0x2e, r1	; 46
+					TIMSK &= ~(1 << OCIE1A); //~(1 << OCIE1A);  //TIMSK=0x11;
+     8fc:	89 b7       	in	r24, 0x39	; 57
+     8fe:	8f 7e       	andi	r24, 0xEF	; 239
+     900:	89 bf       	out	0x39, r24	; 57
+					irparams.rcvcounter = 0;
+     902:	10 92 72 00 	sts	0x0072, r1
+     906:	10 92 73 00 	sts	0x0073, r1
+     90a:	10 92 74 00 	sts	0x0074, r1
+     90e:	10 92 75 00 	sts	0x0075, r1
+					irparams.bufcounter = 0;
+     912:	10 92 6b 00 	sts	0x006B, r1
+     916:	10 92 6a 00 	sts	0x006A, r1
+					irparams.sndcounter = 0;
+     91a:	10 92 6e 00 	sts	0x006E, r1
+     91e:	10 92 6f 00 	sts	0x006F, r1
+     922:	10 92 70 00 	sts	0x0070, r1
+     926:	10 92 71 00 	sts	0x0071, r1
+					irparams.isrec = 1;
+     92a:	81 e0       	ldi	r24, 0x01	; 1
+     92c:	90 e0       	ldi	r25, 0x00	; 0
+     92e:	90 93 7b 00 	sts	0x007B, r25
+     932:	80 93 7a 00 	sts	0x007A, r24
+					irparams.lcounter++;
+     936:	ec e6       	ldi	r30, 0x6C	; 108
+     938:	f0 e0       	ldi	r31, 0x00	; 0
+     93a:	20 81       	ld	r18, Z
+     93c:	31 81       	ldd	r19, Z+1	; 0x01
+     93e:	2f 5f       	subi	r18, 0xFF	; 255
+     940:	3f 4f       	sbci	r19, 0xFF	; 255
+     942:	31 83       	std	Z+1, r19	; 0x01
+     944:	20 83       	st	Z, r18
+					irparams.rcvok = 1;
+     946:	90 93 77 00 	sts	0x0077, r25
+     94a:	80 93 76 00 	sts	0x0076, r24
+					irparams.inirec = 0;
+     94e:	10 92 79 02 	sts	0x0279, r1
+     952:	10 92 78 02 	sts	0x0278, r1
+     956:	4d c0       	rjmp	.+154    	; 0x9f2 <ir_rec+0x4c2>
+				}
+				
+			}
+			else {
+				irparams.rcvstate = RELEASE;
+     958:	10 92 67 00 	sts	0x0067, r1
+     95c:	10 92 66 00 	sts	0x0066, r1
+				irparams.rintstate = READY;
+     960:	81 e0       	ldi	r24, 0x01	; 1
+     962:	90 e0       	ldi	r25, 0x00	; 0
+     964:	90 93 7f 00 	sts	0x007F, r25
+     968:	80 93 7e 00 	sts	0x007E, r24
+				irparams.rcvok = 0;
+     96c:	10 92 77 00 	sts	0x0077, r1
+     970:	10 92 76 00 	sts	0x0076, r1
+     974:	3e c0       	rjmp	.+124    	; 0x9f2 <ir_rec+0x4c2>
+		
+	}
+
+	if(irparams.rintstate == GO){
+		
+		switch (irparams.rcvstate) {
+     976:	80 e0       	ldi	r24, 0x00	; 0
+     978:	90 e0       	ldi	r25, 0x00	; 0
+				irparams.rcvok = 0;
+			}
+			break;
+			case RELEASE:
+			for(int cn=0;cn < MAXBUF; cn++){
+				irparams.ircode[cn] = 0;
+     97a:	fc 01       	movw	r30, r24
+     97c:	ee 0f       	add	r30, r30
+     97e:	ff 1f       	adc	r31, r31
+     980:	e0 58       	subi	r30, 0x80	; 128
+     982:	ff 4f       	sbci	r31, 0xFF	; 255
+     984:	11 82       	std	Z+1, r1	; 0x01
+     986:	10 82       	st	Z, r1
+				irparams.rintstate = READY;
+				irparams.rcvok = 0;
+			}
+			break;
+			case RELEASE:
+			for(int cn=0;cn < MAXBUF; cn++){
+     988:	01 96       	adiw	r24, 0x01	; 1
+     98a:	8a 3f       	cpi	r24, 0xFA	; 250
+     98c:	91 05       	cpc	r25, r1
+     98e:	a9 f7       	brne	.-22     	; 0x97a <ir_rec+0x44a>
+				irparams.ircode[cn] = 0;
+			}
+			irparams.lcounter = 4;	// tell host no data
+     990:	84 e0       	ldi	r24, 0x04	; 4
+     992:	90 e0       	ldi	r25, 0x00	; 0
+     994:	90 93 6d 00 	sts	0x006D, r25
+     998:	80 93 6c 00 	sts	0x006C, r24
+			irparams.rel = 1;
+     99c:	81 e0       	ldi	r24, 0x01	; 1
+     99e:	90 e0       	ldi	r25, 0x00	; 0
+     9a0:	90 93 7b 02 	sts	0x027B, r25
+     9a4:	80 93 7a 02 	sts	0x027A, r24
+			irparams.inirec = 0;
+     9a8:	10 92 79 02 	sts	0x0279, r1
+     9ac:	10 92 78 02 	sts	0x0278, r1
+			TCCR1A = 0;
+     9b0:	1f bc       	out	0x2f, r1	; 47
+			TCCR1B = 0;
+     9b2:	1e bc       	out	0x2e, r1	; 46
+			TIMSK &= ~(1 << OCIE1A); //~(1 << OCIE1A);  //TIMSK=0x11;
+     9b4:	29 b7       	in	r18, 0x39	; 57
+     9b6:	2f 7e       	andi	r18, 0xEF	; 239
+     9b8:	29 bf       	out	0x39, r18	; 57
+			irparams.rcvok = 0;
+     9ba:	10 92 77 00 	sts	0x0077, r1
+     9be:	10 92 76 00 	sts	0x0076, r1
+			irparams.rcvcounter = 0;
+     9c2:	10 92 72 00 	sts	0x0072, r1
+     9c6:	10 92 73 00 	sts	0x0073, r1
+     9ca:	10 92 74 00 	sts	0x0074, r1
+     9ce:	10 92 75 00 	sts	0x0075, r1
+			irparams.bufcounter = 0;
+     9d2:	10 92 6b 00 	sts	0x006B, r1
+     9d6:	10 92 6a 00 	sts	0x006A, r1
+			irparams.sndcounter = 0;
+     9da:	10 92 6e 00 	sts	0x006E, r1
+     9de:	10 92 6f 00 	sts	0x006F, r1
+     9e2:	10 92 70 00 	sts	0x0070, r1
+     9e6:	10 92 71 00 	sts	0x0071, r1
+			irparams.isrec = 1;
+     9ea:	90 93 7b 00 	sts	0x007B, r25
+     9ee:	80 93 7a 00 	sts	0x007A, r24
+			break;
+		};
+	}
+	
+	if( (irparams.rcvcounter > TOTALWAIT) && (irparams.bitcounter> NBITS) ) {
+     9f2:	80 91 72 00 	lds	r24, 0x0072
+     9f6:	90 91 73 00 	lds	r25, 0x0073
+     9fa:	a0 91 74 00 	lds	r26, 0x0074
+     9fe:	b0 91 75 00 	lds	r27, 0x0075
+     a02:	86 30       	cpi	r24, 0x06	; 6
+     a04:	9d 40       	sbci	r25, 0x0D	; 13
+     a06:	a1 05       	cpc	r26, r1
+     a08:	b1 05       	cpc	r27, r1
+     a0a:	68 f1       	brcs	.+90     	; 0xa66 <ir_rec+0x536>
+     a0c:	80 91 68 00 	lds	r24, 0x0068
+     a10:	90 91 69 00 	lds	r25, 0x0069
+     a14:	05 97       	sbiw	r24, 0x05	; 5
+     a16:	38 f1       	brcs	.+78     	; 0xa66 <ir_rec+0x536>
+		
+		TCCR1A = 0;
+     a18:	1f bc       	out	0x2f, r1	; 47
+		TCCR1B = 0;
+     a1a:	1e bc       	out	0x2e, r1	; 46
+		TIMSK &= ~(1 << OCIE1A); //~(1 << OCIE1A);  //TIMSK=0x11;
+     a1c:	89 b7       	in	r24, 0x39	; 57
+     a1e:	8f 7e       	andi	r24, 0xEF	; 239
+     a20:	89 bf       	out	0x39, r24	; 57
+
+		irparams.rcvcounter = 0;
+     a22:	10 92 72 00 	sts	0x0072, r1
+     a26:	10 92 73 00 	sts	0x0073, r1
+     a2a:	10 92 74 00 	sts	0x0074, r1
+     a2e:	10 92 75 00 	sts	0x0075, r1
+		irparams.bufcounter = 0;
+     a32:	10 92 6b 00 	sts	0x006B, r1
+     a36:	10 92 6a 00 	sts	0x006A, r1
+		irparams.sndcounter = 0;
+     a3a:	10 92 6e 00 	sts	0x006E, r1
+     a3e:	10 92 6f 00 	sts	0x006F, r1
+     a42:	10 92 70 00 	sts	0x0070, r1
+     a46:	10 92 71 00 	sts	0x0071, r1
+		irparams.isrec = 1;
+     a4a:	81 e0       	ldi	r24, 0x01	; 1
+     a4c:	90 e0       	ldi	r25, 0x00	; 0
+     a4e:	90 93 7b 00 	sts	0x007B, r25
+     a52:	80 93 7a 00 	sts	0x007A, r24
+		irparams.rcvok = 1;
+     a56:	90 93 77 00 	sts	0x0077, r25
+     a5a:	80 93 76 00 	sts	0x0076, r24
+		irparams.inirec = 0;
+     a5e:	10 92 79 02 	sts	0x0279, r1
+     a62:	10 92 78 02 	sts	0x0278, r1
+		
+	}
+	
+	if(irparams.sndcounter > 500000)
+     a66:	80 91 6e 00 	lds	r24, 0x006E
+     a6a:	90 91 6f 00 	lds	r25, 0x006F
+     a6e:	a0 91 70 00 	lds	r26, 0x0070
+     a72:	b0 91 71 00 	lds	r27, 0x0071
+     a76:	81 32       	cpi	r24, 0x21	; 33
+     a78:	91 4a       	sbci	r25, 0xA1	; 161
+     a7a:	a7 40       	sbci	r26, 0x07	; 7
+     a7c:	b1 05       	cpc	r27, r1
+     a7e:	a0 f1       	brcs	.+104    	; 0xae8 <ir_rec+0x5b8>
+     a80:	80 e0       	ldi	r24, 0x00	; 0
+     a82:	90 e0       	ldi	r25, 0x00	; 0
+	{
+		
+		for(int cn=0;cn < MAXBUF; cn++){
+			irparams.ircode[cn] = 0;
+     a84:	fc 01       	movw	r30, r24
+     a86:	ee 0f       	add	r30, r30
+     a88:	ff 1f       	adc	r31, r31
+     a8a:	e0 58       	subi	r30, 0x80	; 128
+     a8c:	ff 4f       	sbci	r31, 0xFF	; 255
+     a8e:	11 82       	std	Z+1, r1	; 0x01
+     a90:	10 82       	st	Z, r1
+	}
+	
+	if(irparams.sndcounter > 500000)
+	{
+		
+		for(int cn=0;cn < MAXBUF; cn++){
+     a92:	01 96       	adiw	r24, 0x01	; 1
+     a94:	8a 3f       	cpi	r24, 0xFA	; 250
+     a96:	91 05       	cpc	r25, r1
+     a98:	a9 f7       	brne	.-22     	; 0xa84 <ir_rec+0x554>
+			irparams.ircode[cn] = 0;
+		}
+		irparams.inirec = 0;
+     a9a:	10 92 79 02 	sts	0x0279, r1
+     a9e:	10 92 78 02 	sts	0x0278, r1
+		TCCR1A = 0;
+     aa2:	1f bc       	out	0x2f, r1	; 47
+		TCCR1B = 0;
+     aa4:	1e bc       	out	0x2e, r1	; 46
+		TIMSK &= ~(1 << OCIE1A); //~(1 << OCIE1A);  //TIMSK=0x11;
+     aa6:	89 b7       	in	r24, 0x39	; 57
+     aa8:	8f 7e       	andi	r24, 0xEF	; 239
+     aaa:	89 bf       	out	0x39, r24	; 57
+		irparams.rcvok = 0;
+     aac:	10 92 77 00 	sts	0x0077, r1
+     ab0:	10 92 76 00 	sts	0x0076, r1
+		irparams.rcvcounter = 0;
+     ab4:	10 92 72 00 	sts	0x0072, r1
+     ab8:	10 92 73 00 	sts	0x0073, r1
+     abc:	10 92 74 00 	sts	0x0074, r1
+     ac0:	10 92 75 00 	sts	0x0075, r1
+		irparams.bufcounter = 0;
+     ac4:	10 92 6b 00 	sts	0x006B, r1
+     ac8:	10 92 6a 00 	sts	0x006A, r1
+		irparams.sndcounter = 0;
+     acc:	10 92 6e 00 	sts	0x006E, r1
+     ad0:	10 92 6f 00 	sts	0x006F, r1
+     ad4:	10 92 70 00 	sts	0x0070, r1
+     ad8:	10 92 71 00 	sts	0x0071, r1
+		irparams.isrec = 1;
+     adc:	81 e0       	ldi	r24, 0x01	; 1
+     ade:	90 e0       	ldi	r25, 0x00	; 0
+     ae0:	90 93 7b 00 	sts	0x007B, r25
+     ae4:	80 93 7a 00 	sts	0x007A, r24
+	}
+	
+	
+	return irparams.isrec;
+     ae8:	80 91 7a 00 	lds	r24, 0x007A
+     aec:	90 91 7b 00 	lds	r25, 0x007B
+
+}
+     af0:	df 91       	pop	r29
+     af2:	cf 91       	pop	r28
+     af4:	1f 91       	pop	r17
+     af6:	0f 91       	pop	r16
+     af8:	08 95       	ret
+
+00000afa <__vector_6>:
+uchar r_State;
+uchar m_State;
+uchar s_State;
+
+//ISR(TIMER1_OVF_vect){
+ISR(TIMER1_COMPA_vect){
+     afa:	1f 92       	push	r1
+     afc:	0f 92       	push	r0
+     afe:	0f b6       	in	r0, 0x3f	; 63
+     b00:	0f 92       	push	r0
+     b02:	11 24       	eor	r1, r1
+     b04:	8f 93       	push	r24
+     b06:	9f 93       	push	r25
+     b08:	af 93       	push	r26
+     b0a:	bf 93       	push	r27
+     b0c:	ef 93       	push	r30
+     b0e:	ff 93       	push	r31
+	irparams.sndcounter++;
+     b10:	ee e6       	ldi	r30, 0x6E	; 110
+     b12:	f0 e0       	ldi	r31, 0x00	; 0
+     b14:	80 81       	ld	r24, Z
+     b16:	91 81       	ldd	r25, Z+1	; 0x01
+     b18:	a2 81       	ldd	r26, Z+2	; 0x02
+     b1a:	b3 81       	ldd	r27, Z+3	; 0x03
+     b1c:	01 96       	adiw	r24, 0x01	; 1
+     b1e:	a1 1d       	adc	r26, r1
+     b20:	b1 1d       	adc	r27, r1
+     b22:	80 83       	st	Z, r24
+     b24:	91 83       	std	Z+1, r25	; 0x01
+     b26:	a2 83       	std	Z+2, r26	; 0x02
+     b28:	b3 83       	std	Z+3, r27	; 0x03
+	irparams.rcvcounter++;
+     b2a:	e2 e7       	ldi	r30, 0x72	; 114
+     b2c:	f0 e0       	ldi	r31, 0x00	; 0
+     b2e:	80 81       	ld	r24, Z
+     b30:	91 81       	ldd	r25, Z+1	; 0x01
+     b32:	a2 81       	ldd	r26, Z+2	; 0x02
+     b34:	b3 81       	ldd	r27, Z+3	; 0x03
+     b36:	01 96       	adiw	r24, 0x01	; 1
+     b38:	a1 1d       	adc	r26, r1
+     b3a:	b1 1d       	adc	r27, r1
+     b3c:	80 83       	st	Z, r24
+     b3e:	91 83       	std	Z+1, r25	; 0x01
+     b40:	a2 83       	std	Z+2, r26	; 0x02
+     b42:	b3 83       	std	Z+3, r27	; 0x03
+}
+     b44:	ff 91       	pop	r31
+     b46:	ef 91       	pop	r30
+     b48:	bf 91       	pop	r27
+     b4a:	af 91       	pop	r26
+     b4c:	9f 91       	pop	r25
+     b4e:	8f 91       	pop	r24
+     b50:	0f 90       	pop	r0
+     b52:	0f be       	out	0x3f, r0	; 63
+     b54:	0f 90       	pop	r0
+     b56:	1f 90       	pop	r1
+     b58:	18 95       	reti
+
+00000b5a <__vector_2>:
+
+ISR(INT1_vect){
+     b5a:	1f 92       	push	r1
+     b5c:	0f 92       	push	r0
+     b5e:	0f b6       	in	r0, 0x3f	; 63
+     b60:	0f 92       	push	r0
+     b62:	11 24       	eor	r1, r1
+     b64:	8f 93       	push	r24
+     b66:	9f 93       	push	r25
+	irparams.rintstate = GO;
+     b68:	82 e0       	ldi	r24, 0x02	; 2
+     b6a:	90 e0       	ldi	r25, 0x00	; 0
+     b6c:	90 93 7f 00 	sts	0x007F, r25
+     b70:	80 93 7e 00 	sts	0x007E, r24
+}
+     b74:	9f 91       	pop	r25
+     b76:	8f 91       	pop	r24
+     b78:	0f 90       	pop	r0
+     b7a:	0f be       	out	0x3f, r0	; 63
+     b7c:	0f 90       	pop	r0
+     b7e:	1f 90       	pop	r1
+     b80:	18 95       	reti
+
+00000b82 <usbFunctionSetup>:
+// this gets called when custom control message is received
+USB_PUBLIC uchar usbFunctionSetup(uchar data[8]) {
+	usbRequest_t *rq = (void *)data; // cast data to correct type
+	
+	
+	if(rq->bmRequestType == RTYPE){
+     b82:	fc 01       	movw	r30, r24
+     b84:	20 81       	ld	r18, Z
+     b86:	21 3a       	cpi	r18, 0xA1	; 161
+     b88:	59 f4       	brne	.+22     	; 0xba0 <usbFunctionSetup+0x1e>
+		
+		if(rq->bRequest == 0x00) {
+     b8a:	81 81       	ldd	r24, Z+1	; 0x01
+     b8c:	81 11       	cpse	r24, r1
+     b8e:	04 c0       	rjmp	.+8      	; 0xb98 <usbFunctionSetup+0x16>
+			r_State = IR_GET_LENGTH;
+     b90:	10 92 7c 02 	sts	0x027C, r1
+		}
+		else {
+			r_State = rq->bRequest;
+		}
+		
+		return USB_NO_MSG;
+     b94:	8f ef       	ldi	r24, 0xFF	; 255
+     b96:	08 95       	ret
+		
+		if(rq->bRequest == 0x00) {
+			r_State = IR_GET_LENGTH;
+		}
+		else {
+			r_State = rq->bRequest;
+     b98:	80 93 7c 02 	sts	0x027C, r24
+		}
+		
+		return USB_NO_MSG;
+     b9c:	8f ef       	ldi	r24, 0xFF	; 255
+     b9e:	08 95       	ret
+		}	 else if(rq->bmRequestType == TTYPE)	{
+     ba0:	21 32       	cpi	r18, 0x21	; 33
+     ba2:	51 f5       	brne	.+84     	; 0xbf8 <usbFunctionSetup+0x76>
+		if(rq->bRequest == 0x00) {
+     ba4:	fc 01       	movw	r30, r24
+     ba6:	91 81       	ldd	r25, Z+1	; 0x01
+     ba8:	91 11       	cpse	r25, r1
+     baa:	0a c0       	rjmp	.+20     	; 0xbc0 <usbFunctionSetup+0x3e>
+			irparams.lcounter = 0;
+     bac:	10 92 6d 00 	sts	0x006D, r1
+     bb0:	10 92 6c 00 	sts	0x006C, r1
+			dataReceived = 0;
+     bb4:	10 92 63 00 	sts	0x0063, r1
+     bb8:	10 92 62 00 	sts	0x0062, r1
+			return 0;
+     bbc:	80 e0       	ldi	r24, 0x00	; 0
+     bbe:	08 95       	ret
+			} else if(rq->bRequest == 0x01){
+     bc0:	91 30       	cpi	r25, 0x01	; 1
+     bc2:	29 f4       	brne	.+10     	; 0xbce <usbFunctionSetup+0x4c>
+			m_State = PLAY;
+     bc4:	81 e0       	ldi	r24, 0x01	; 1
+     bc6:	80 93 7d 02 	sts	0x027D, r24
+			return 0;
+     bca:	80 e0       	ldi	r24, 0x00	; 0
+     bcc:	08 95       	ret
+		}
+		else if(rq->bRequest == 0x02){
+     bce:	92 30       	cpi	r25, 0x02	; 2
+     bd0:	69 f4       	brne	.+26     	; 0xbec <usbFunctionSetup+0x6a>
+			irparams.lcounter = dataReceived;
+     bd2:	80 91 62 00 	lds	r24, 0x0062
+     bd6:	90 91 63 00 	lds	r25, 0x0063
+     bda:	90 93 6d 00 	sts	0x006D, r25
+     bde:	80 93 6c 00 	sts	0x006C, r24
+			s_State = PLAY;
+     be2:	81 e0       	ldi	r24, 0x01	; 1
+     be4:	80 93 65 00 	sts	0x0065, r24
+			return 0;
+     be8:	80 e0       	ldi	r24, 0x00	; 0
+     bea:	08 95       	ret
+		}
+		else if(rq->bRequest == 0x03){
+     bec:	81 e0       	ldi	r24, 0x01	; 1
+     bee:	93 30       	cpi	r25, 0x03	; 3
+     bf0:	09 f0       	breq	.+2      	; 0xbf4 <usbFunctionSetup+0x72>
+     bf2:	80 e0       	ldi	r24, 0x00	; 0
+     bf4:	81 95       	neg	r24
+     bf6:	08 95       	ret
+			return USB_NO_MSG; // usbFunctionWrite will be called now
+		}
+		
+	}
+
+	return 0; // should not get here
+     bf8:	80 e0       	ldi	r24, 0x00	; 0
+}
+     bfa:	08 95       	ret
+
+00000bfc <usbFunctionRead>:
+
+
+USB_PUBLIC uchar usbFunctionRead(uchar *data, uchar len){
+     bfc:	fc 01       	movw	r30, r24
+	
+	if(r_State == IR_GET_LENGTH){
+     bfe:	a0 91 7c 02 	lds	r26, 0x027C
+     c02:	a1 11       	cpse	r26, r1
+     c04:	07 c0       	rjmp	.+14     	; 0xc14 <usbFunctionRead+0x18>
+		data[0] = irparams.lcounter;
+     c06:	80 91 6c 00 	lds	r24, 0x006C
+     c0a:	90 91 6d 00 	lds	r25, 0x006D
+     c0e:	80 83       	st	Z, r24
+		return 1;
+     c10:	81 e0       	ldi	r24, 0x01	; 1
+     c12:	08 95       	ret
+		} else {
+		data[0] =  (irparams.ircode[r_State - 1] >> 8) & 0x00ff;
+     c14:	b0 e0       	ldi	r27, 0x00	; 0
+     c16:	aa 0f       	add	r26, r26
+     c18:	bb 1f       	adc	r27, r27
+     c1a:	a2 58       	subi	r26, 0x82	; 130
+     c1c:	bf 4f       	sbci	r27, 0xFF	; 255
+     c1e:	8d 91       	ld	r24, X+
+     c20:	9c 91       	ld	r25, X
+     c22:	90 83       	st	Z, r25
+		data[1] =  irparams.ircode[r_State - 1] & 0x00ff;
+     c24:	80 91 7c 02 	lds	r24, 0x027C
+     c28:	90 e0       	ldi	r25, 0x00	; 0
+     c2a:	dc 01       	movw	r26, r24
+     c2c:	aa 0f       	add	r26, r26
+     c2e:	bb 1f       	adc	r27, r27
+     c30:	a2 58       	subi	r26, 0x82	; 130
+     c32:	bf 4f       	sbci	r27, 0xFF	; 255
+     c34:	2d 91       	ld	r18, X+
+     c36:	3c 91       	ld	r19, X
+     c38:	21 83       	std	Z+1, r18	; 0x01
+		data[2] =  (irparams.ircode[r_State] >> 8) & 0x00ff;;
+     c3a:	dc 01       	movw	r26, r24
+     c3c:	aa 0f       	add	r26, r26
+     c3e:	bb 1f       	adc	r27, r27
+     c40:	a0 58       	subi	r26, 0x80	; 128
+     c42:	bf 4f       	sbci	r27, 0xFF	; 255
+     c44:	2d 91       	ld	r18, X+
+     c46:	3c 91       	ld	r19, X
+     c48:	11 97       	sbiw	r26, 0x01	; 1
+     c4a:	32 83       	std	Z+2, r19	; 0x02
+		data[3] =  irparams.ircode[r_State ] & 0x00ff;
+     c4c:	2d 91       	ld	r18, X+
+     c4e:	3c 91       	ld	r19, X
+     c50:	23 83       	std	Z+3, r18	; 0x03
+		data[4] =  (irparams.ircode[r_State + 1] >> 8) & 0x00ff;
+     c52:	dc 01       	movw	r26, r24
+     c54:	aa 0f       	add	r26, r26
+     c56:	bb 1f       	adc	r27, r27
+     c58:	ae 57       	subi	r26, 0x7E	; 126
+     c5a:	bf 4f       	sbci	r27, 0xFF	; 255
+     c5c:	2d 91       	ld	r18, X+
+     c5e:	3c 91       	ld	r19, X
+     c60:	11 97       	sbiw	r26, 0x01	; 1
+     c62:	34 83       	std	Z+4, r19	; 0x04
+		data[5] =  irparams.ircode[r_State + 1] & 0x00ff;
+     c64:	2d 91       	ld	r18, X+
+     c66:	3c 91       	ld	r19, X
+     c68:	25 83       	std	Z+5, r18	; 0x05
+		data[6] =  (irparams.ircode[r_State + 2] >> 8) & 0x00ff;
+     c6a:	dc 01       	movw	r26, r24
+     c6c:	aa 0f       	add	r26, r26
+     c6e:	bb 1f       	adc	r27, r27
+     c70:	ac 57       	subi	r26, 0x7C	; 124
+     c72:	bf 4f       	sbci	r27, 0xFF	; 255
+     c74:	8d 91       	ld	r24, X+
+     c76:	9c 91       	ld	r25, X
+     c78:	11 97       	sbiw	r26, 0x01	; 1
+     c7a:	96 83       	std	Z+6, r25	; 0x06
+		data[7] =  irparams.ircode[r_State + 2] & 0x00ff;
+     c7c:	8d 91       	ld	r24, X+
+     c7e:	9c 91       	ld	r25, X
+     c80:	87 83       	std	Z+7, r24	; 0x07
+		return 8;
+     c82:	88 e0       	ldi	r24, 0x08	; 8
+	}
+	
+}
+     c84:	08 95       	ret
+
+00000c86 <usbFunctionWrite>:
+
+
+// This gets called when data is sent from PC to the device
+USB_PUBLIC uchar usbFunctionWrite(uchar *data, uchar len) {
+     c86:	cf 93       	push	r28
+     c88:	df 93       	push	r29
+
+	uchar i;
+	uchar j = 0;
+	for(i = 0; i < 8; i += 2){
+		irparams.ircode[dataReceived + j++] = ((data[i] << 8) & 0xff00) | (data[i+1] & 0x00ff);
+     c8a:	40 91 62 00 	lds	r20, 0x0062
+     c8e:	50 91 63 00 	lds	r21, 0x0063
+     c92:	fc 01       	movw	r30, r24
+     c94:	31 96       	adiw	r30, 0x01	; 1
+     c96:	20 e0       	ldi	r18, 0x00	; 0
+     c98:	30 e0       	ldi	r19, 0x00	; 0
+     c9a:	d9 01       	movw	r26, r18
+     c9c:	a4 0f       	add	r26, r20
+     c9e:	b5 1f       	adc	r27, r21
+     ca0:	ef 01       	movw	r28, r30
+     ca2:	21 97       	sbiw	r28, 0x01	; 1
+     ca4:	88 81       	ld	r24, Y
+     ca6:	90 e0       	ldi	r25, 0x00	; 0
+     ca8:	98 2f       	mov	r25, r24
+     caa:	88 27       	eor	r24, r24
+     cac:	60 81       	ld	r22, Z
+     cae:	86 2b       	or	r24, r22
+     cb0:	aa 0f       	add	r26, r26
+     cb2:	bb 1f       	adc	r27, r27
+     cb4:	a0 58       	subi	r26, 0x80	; 128
+     cb6:	bf 4f       	sbci	r27, 0xFF	; 255
+     cb8:	11 96       	adiw	r26, 0x01	; 1
+     cba:	9c 93       	st	X, r25
+     cbc:	8e 93       	st	-X, r24
+     cbe:	2f 5f       	subi	r18, 0xFF	; 255
+     cc0:	3f 4f       	sbci	r19, 0xFF	; 255
+     cc2:	32 96       	adiw	r30, 0x02	; 2
+// This gets called when data is sent from PC to the device
+USB_PUBLIC uchar usbFunctionWrite(uchar *data, uchar len) {
+
+	uchar i;
+	uchar j = 0;
+	for(i = 0; i < 8; i += 2){
+     cc4:	24 30       	cpi	r18, 0x04	; 4
+     cc6:	31 05       	cpc	r19, r1
+     cc8:	41 f7       	brne	.-48     	; 0xc9a <usbFunctionWrite+0x14>
+		irparams.ircode[dataReceived + j++] = ((data[i] << 8) & 0xff00) | (data[i+1] & 0x00ff);
+	}
+	
+	dataReceived = dataReceived + 4;
+     cca:	80 91 62 00 	lds	r24, 0x0062
+     cce:	90 91 63 00 	lds	r25, 0x0063
+     cd2:	04 96       	adiw	r24, 0x04	; 4
+     cd4:	90 93 63 00 	sts	0x0063, r25
+     cd8:	80 93 62 00 	sts	0x0062, r24
+	
+	return 1; // 1 if we received it all, 0 if not
+	
+}
+     cdc:	81 e0       	ldi	r24, 0x01	; 1
+     cde:	df 91       	pop	r29
+     ce0:	cf 91       	pop	r28
+     ce2:	08 95       	ret
+
+00000ce4 <conInit>:
+
+
+void conInit(void){
+	unsigned int i,j;
+	
+	PORTB |= 1;
+     ce4:	c0 9a       	sbi	0x18, 0	; 24
+     ce6:	28 ee       	ldi	r18, 0xE8	; 232
+     ce8:	33 e0       	ldi	r19, 0x03	; 3
+	
+	return 0;
+}
+
+
+void conInit(void){
+     cea:	5a ef       	ldi	r21, 0xFA	; 250
+     cec:	40 e0       	ldi	r20, 0x00	; 0
+     cee:	08 c0       	rjmp	.+16     	; 0xd00 <conInit+0x1c>
+     cf0:	01 97       	sbiw	r24, 0x01	; 1
+	unsigned int i,j;
+	
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+     cf2:	00 97       	sbiw	r24, 0x00	; 0
+     cf4:	e9 f7       	brne	.-6      	; 0xcf0 <conInit+0xc>
+     cf6:	21 50       	subi	r18, 0x01	; 1
+     cf8:	31 09       	sbc	r19, r1
+
+void conInit(void){
+	unsigned int i,j;
+	
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+     cfa:	21 15       	cp	r18, r1
+     cfc:	31 05       	cpc	r19, r1
+     cfe:	19 f0       	breq	.+6      	; 0xd06 <conInit+0x22>
+	
+	return 0;
+}
+
+
+void conInit(void){
+     d00:	85 2f       	mov	r24, r21
+     d02:	94 2f       	mov	r25, r20
+     d04:	f5 cf       	rjmp	.-22     	; 0xcf0 <conInit+0xc>
+	unsigned int i,j;
+	
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     d06:	c0 98       	cbi	0x18, 0	; 24
+     d08:	28 ee       	ldi	r18, 0xE8	; 232
+     d0a:	33 e0       	ldi	r19, 0x03	; 3
+
+
+void conInit(void){
+	unsigned int i,j;
+	
+	PORTB |= 1;
+     d0c:	54 e6       	ldi	r21, 0x64	; 100
+     d0e:	40 e0       	ldi	r20, 0x00	; 0
+     d10:	08 c0       	rjmp	.+16     	; 0xd22 <conInit+0x3e>
+     d12:	01 97       	sbiw	r24, 0x01	; 1
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+     d14:	00 97       	sbiw	r24, 0x00	; 0
+     d16:	e9 f7       	brne	.-6      	; 0xd12 <conInit+0x2e>
+     d18:	21 50       	subi	r18, 0x01	; 1
+     d1a:	31 09       	sbc	r19, r1
+	
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+     d1c:	21 15       	cp	r18, r1
+     d1e:	31 05       	cpc	r19, r1
+     d20:	19 f0       	breq	.+6      	; 0xd28 <conInit+0x44>
+
+
+void conInit(void){
+	unsigned int i,j;
+	
+	PORTB |= 1;
+     d22:	85 2f       	mov	r24, r21
+     d24:	94 2f       	mov	r25, r20
+     d26:	f5 cf       	rjmp	.-22     	; 0xd12 <conInit+0x2e>
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+     d28:	c0 9a       	sbi	0x18, 0	; 24
+     d2a:	28 ee       	ldi	r18, 0xE8	; 232
+     d2c:	33 e0       	ldi	r19, 0x03	; 3
+	unsigned int i,j;
+	
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     d2e:	5a ef       	ldi	r21, 0xFA	; 250
+     d30:	40 e0       	ldi	r20, 0x00	; 0
+     d32:	08 c0       	rjmp	.+16     	; 0xd44 <conInit+0x60>
+     d34:	01 97       	sbiw	r24, 0x01	; 1
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+     d36:	00 97       	sbiw	r24, 0x00	; 0
+     d38:	e9 f7       	brne	.-6      	; 0xd34 <conInit+0x50>
+     d3a:	21 50       	subi	r18, 0x01	; 1
+     d3c:	31 09       	sbc	r19, r1
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+     d3e:	21 15       	cp	r18, r1
+     d40:	31 05       	cpc	r19, r1
+     d42:	19 f0       	breq	.+6      	; 0xd4a <conInit+0x66>
+	unsigned int i,j;
+	
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     d44:	85 2f       	mov	r24, r21
+     d46:	94 2f       	mov	r25, r20
+     d48:	f5 cf       	rjmp	.-22     	; 0xd34 <conInit+0x50>
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     d4a:	c0 98       	cbi	0x18, 0	; 24
+     d4c:	28 ee       	ldi	r18, 0xE8	; 232
+     d4e:	33 e0       	ldi	r19, 0x03	; 3
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+     d50:	54 e6       	ldi	r21, 0x64	; 100
+     d52:	40 e0       	ldi	r20, 0x00	; 0
+     d54:	08 c0       	rjmp	.+16     	; 0xd66 <conInit+0x82>
+     d56:	01 97       	sbiw	r24, 0x01	; 1
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+     d58:	00 97       	sbiw	r24, 0x00	; 0
+     d5a:	e9 f7       	brne	.-6      	; 0xd56 <conInit+0x72>
+     d5c:	21 50       	subi	r18, 0x01	; 1
+     d5e:	31 09       	sbc	r19, r1
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+     d60:	21 15       	cp	r18, r1
+     d62:	31 05       	cpc	r19, r1
+     d64:	19 f0       	breq	.+6      	; 0xd6c <conInit+0x88>
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+     d66:	85 2f       	mov	r24, r21
+     d68:	94 2f       	mov	r25, r20
+     d6a:	f5 cf       	rjmp	.-22     	; 0xd56 <conInit+0x72>
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+     d6c:	c0 9a       	sbi	0x18, 0	; 24
+     d6e:	28 ee       	ldi	r18, 0xE8	; 232
+     d70:	33 e0       	ldi	r19, 0x03	; 3
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     d72:	5a ef       	ldi	r21, 0xFA	; 250
+     d74:	40 e0       	ldi	r20, 0x00	; 0
+     d76:	08 c0       	rjmp	.+16     	; 0xd88 <conInit+0xa4>
+     d78:	01 97       	sbiw	r24, 0x01	; 1
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+     d7a:	00 97       	sbiw	r24, 0x00	; 0
+     d7c:	e9 f7       	brne	.-6      	; 0xd78 <conInit+0x94>
+     d7e:	21 50       	subi	r18, 0x01	; 1
+     d80:	31 09       	sbc	r19, r1
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+     d82:	21 15       	cp	r18, r1
+     d84:	31 05       	cpc	r19, r1
+     d86:	19 f0       	breq	.+6      	; 0xd8e <conInit+0xaa>
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     d88:	85 2f       	mov	r24, r21
+     d8a:	94 2f       	mov	r25, r20
+     d8c:	f5 cf       	rjmp	.-22     	; 0xd78 <conInit+0x94>
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     d8e:	c0 98       	cbi	0x18, 0	; 24
+     d90:	28 ee       	ldi	r18, 0xE8	; 232
+     d92:	33 e0       	ldi	r19, 0x03	; 3
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+     d94:	54 e6       	ldi	r21, 0x64	; 100
+     d96:	40 e0       	ldi	r20, 0x00	; 0
+     d98:	08 c0       	rjmp	.+16     	; 0xdaa <conInit+0xc6>
+     d9a:	01 97       	sbiw	r24, 0x01	; 1
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+     d9c:	00 97       	sbiw	r24, 0x00	; 0
+     d9e:	e9 f7       	brne	.-6      	; 0xd9a <conInit+0xb6>
+     da0:	21 50       	subi	r18, 0x01	; 1
+     da2:	31 09       	sbc	r19, r1
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+     da4:	21 15       	cp	r18, r1
+     da6:	31 05       	cpc	r19, r1
+     da8:	19 f0       	breq	.+6      	; 0xdb0 <conInit+0xcc>
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+     daa:	85 2f       	mov	r24, r21
+     dac:	94 2f       	mov	r25, r20
+     dae:	f5 cf       	rjmp	.-22     	; 0xd9a <conInit+0xb6>
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+     db0:	c0 9a       	sbi	0x18, 0	; 24
+     db2:	28 ee       	ldi	r18, 0xE8	; 232
+     db4:	33 e0       	ldi	r19, 0x03	; 3
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     db6:	5a ef       	ldi	r21, 0xFA	; 250
+     db8:	40 e0       	ldi	r20, 0x00	; 0
+     dba:	08 c0       	rjmp	.+16     	; 0xdcc <conInit+0xe8>
+     dbc:	01 97       	sbiw	r24, 0x01	; 1
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+     dbe:	00 97       	sbiw	r24, 0x00	; 0
+     dc0:	e9 f7       	brne	.-6      	; 0xdbc <conInit+0xd8>
+     dc2:	21 50       	subi	r18, 0x01	; 1
+     dc4:	31 09       	sbc	r19, r1
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+     dc6:	21 15       	cp	r18, r1
+     dc8:	31 05       	cpc	r19, r1
+     dca:	19 f0       	breq	.+6      	; 0xdd2 <conInit+0xee>
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     dcc:	85 2f       	mov	r24, r21
+     dce:	94 2f       	mov	r25, r20
+     dd0:	f5 cf       	rjmp	.-22     	; 0xdbc <conInit+0xd8>
+	for(i=0;i<1000;i++)
+	for(j=0;j<100;j++){}
+	PORTB |= 1;
+	for(i=0;i<1000;i++)
+	for(j=0;j<250;j++){}
+	PORTB &= ~1;
+     dd2:	c0 98       	cbi	0x18, 0	; 24
+     dd4:	08 95       	ret
+
+00000dd6 <main>:
+	
+}
+
+int main() {
+	uchar i;
+	irparams.isrec = 1;
+     dd6:	81 e0       	ldi	r24, 0x01	; 1
+     dd8:	90 e0       	ldi	r25, 0x00	; 0
+     dda:	90 93 7b 00 	sts	0x007B, r25
+     dde:	80 93 7a 00 	sts	0x007A, r24
+	s_State = STALL;
+     de2:	10 92 65 00 	sts	0x0065, r1
+	DDRB = 0x0f; // PB0 as output
+     de6:	8f e0       	ldi	r24, 0x0F	; 15
+     de8:	87 bb       	out	0x17, r24	; 23
+	OCR1B = 20;
+     dea:	84 e1       	ldi	r24, 0x14	; 20
+     dec:	90 e0       	ldi	r25, 0x00	; 0
+     dee:	99 bd       	out	0x29, r25	; 41
+     df0:	88 bd       	out	0x28, r24	; 40
+	OCR1A = 40;
+     df2:	88 e2       	ldi	r24, 0x28	; 40
+     df4:	90 e0       	ldi	r25, 0x00	; 0
+     df6:	9b bd       	out	0x2b, r25	; 43
+     df8:	8a bd       	out	0x2a, r24	; 42
+	
+	
+	//wdt_enable(WDTO_1S); // enable 1s watchdog timer
+
+	usbInit();
+     dfa:	55 d1       	rcall	.+682    	; 0x10a6 <usbInit>
+	
+	usbDeviceDisconnect(); // enforce re-enumeration
+     dfc:	8c 9a       	sbi	0x11, 4	; 17
+     dfe:	8a ef       	ldi	r24, 0xFA	; 250
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     e00:	ef e6       	ldi	r30, 0x6F	; 111
+     e02:	f7 e1       	ldi	r31, 0x17	; 23
+     e04:	31 97       	sbiw	r30, 0x01	; 1
+     e06:	f1 f7       	brne	.-4      	; 0xe04 <main+0x2e>
+     e08:	00 c0       	rjmp	.+0      	; 0xe0a <main+0x34>
+     e0a:	00 00       	nop
+     e0c:	81 50       	subi	r24, 0x01	; 1
+	for(i = 0; i<250; i++) { // wait 500 ms
+     e0e:	c1 f7       	brne	.-16     	; 0xe00 <main+0x2a>
+		//wdt_reset(); // keep the watchdog happy
+		_delay_ms(2);
+	}
+	usbDeviceConnect();
+     e10:	8c 98       	cbi	0x11, 4	; 17
+	
+	sei(); // Enable interrupts after re-enumeration
+     e12:	78 94       	sei
+	conInit();
+     e14:	67 df       	rcall	.-306    	; 0xce4 <conInit>
+			PORTB &= ~1;
+			m_State = STALL;
+		}
+		
+		if (s_State == PLAY){
+			irparams.issnd = 1;
+     e16:	0c e7       	ldi	r16, 0x7C	; 124
+     e18:	10 e0       	ldi	r17, 0x00	; 0
+     e1a:	c1 e0       	ldi	r28, 0x01	; 1
+     e1c:	d0 e0       	ldi	r29, 0x00	; 0
+	conInit();
+	
+	while(1) {
+		//       wdt_reset(); // keep the watchdog happy
+		
+		usbPoll();
+     e1e:	18 d0       	rcall	.+48     	; 0xe50 <usbPoll>
+		if(m_State == PLAY){
+     e20:	80 91 7d 02 	lds	r24, 0x027D
+     e24:	81 30       	cpi	r24, 0x01	; 1
+     e26:	39 f4       	brne	.+14     	; 0xe36 <main+0x60>
+			PORTB |= 1;
+     e28:	c0 9a       	sbi	0x18, 0	; 24
+			while(!ir_rec());
+     e2a:	82 db       	rcall	.-2300   	; 0x530 <ir_rec>
+     e2c:	89 2b       	or	r24, r25
+     e2e:	e9 f3       	breq	.-6      	; 0xe2a <main+0x54>
+			PORTB &= ~1;
+     e30:	c0 98       	cbi	0x18, 0	; 24
+			m_State = STALL;
+     e32:	10 92 7d 02 	sts	0x027D, r1
+		}
+		
+		if (s_State == PLAY){
+     e36:	80 91 65 00 	lds	r24, 0x0065
+     e3a:	81 30       	cpi	r24, 0x01	; 1
+     e3c:	81 f7       	brne	.-32     	; 0xe1e <main+0x48>
+			irparams.issnd = 1;
+     e3e:	f8 01       	movw	r30, r16
+     e40:	d1 83       	std	Z+1, r29	; 0x01
+     e42:	c0 83       	st	Z, r28
+			while(!ir_send());
+     e44:	81 da       	rcall	.-2814   	; 0x348 <ir_send>
+     e46:	89 2b       	or	r24, r25
+     e48:	e9 f3       	breq	.-6      	; 0xe44 <main+0x6e>
+			s_State = STALL;
+     e4a:	10 92 65 00 	sts	0x0065, r1
+     e4e:	e7 cf       	rjmp	.-50     	; 0xe1e <main+0x48>
+
+00000e50 <usbPoll>:
+}
+
+/* ------------------------------------------------------------------------- */
+
+USB_PUBLIC void usbPoll(void)
+{
+     e50:	cf 93       	push	r28
+     e52:	df 93       	push	r29
+schar   len;
+uchar   i;
+
+    len = usbRxLen - 3;
+     e54:	60 91 8e 02 	lds	r22, 0x028E
+     e58:	63 50       	subi	r22, 0x03	; 3
+    if(len >= 0){
+     e5a:	0a f4       	brpl	.+2      	; 0xe5e <usbPoll+0xe>
+     e5c:	ae c0       	rjmp	.+348    	; 0xfba <usbPoll+0x16a>
+ * need data integrity checks with this driver, check the CRC in your app
+ * code and report errors back to the host. Since the ACK was already sent,
+ * retries must be handled on application level.
+ * unsigned crc = usbCrc16(buffer + 1, usbRxLen - 3);
+ */
+        usbProcessRx(usbRxBuf + USB_BUFSIZE + 1 - usbInputBufOffset, len);
+     e5e:	20 91 8b 02 	lds	r18, 0x028B
+     e62:	8c e0       	ldi	r24, 0x0C	; 12
+     e64:	90 e0       	ldi	r25, 0x00	; 0
+     e66:	82 1b       	sub	r24, r18
+     e68:	91 09       	sbc	r25, r1
+     e6a:	ec 01       	movw	r28, r24
+     e6c:	ce 56       	subi	r28, 0x6E	; 110
+     e6e:	dd 4f       	sbci	r29, 0xFD	; 253
+    if(usbRxToken < 0x10){  /* OUT to endpoint != 0: endpoint number in usbRxToken */
+        usbFunctionWriteOut(data, len);
+        return;
+    }
+#endif
+    if(usbRxToken == (uchar)USBPID_SETUP){
+     e70:	80 91 8a 02 	lds	r24, 0x028A
+     e74:	8d 32       	cpi	r24, 0x2D	; 45
+     e76:	09 f0       	breq	.+2      	; 0xe7a <usbPoll+0x2a>
+     e78:	8f c0       	rjmp	.+286    	; 0xf98 <usbPoll+0x148>
+        if(len != 8)    /* Setup size must be always 8 bytes. Ignore otherwise. */
+     e7a:	68 30       	cpi	r22, 0x08	; 8
+     e7c:	09 f0       	breq	.+2      	; 0xe80 <usbPoll+0x30>
+     e7e:	9b c0       	rjmp	.+310    	; 0xfb6 <usbPoll+0x166>
+            return;
+        usbMsgLen_t replyLen;
+        usbTxBuf[0] = USBPID_DATA0;         /* initialize data toggling */
+     e80:	83 ec       	ldi	r24, 0xC3	; 195
+     e82:	80 93 7e 02 	sts	0x027E, r24
+        usbTxLen = USBPID_NAK;              /* abort pending transmit */
+     e86:	8a e5       	ldi	r24, 0x5A	; 90
+     e88:	80 93 61 00 	sts	0x0061, r24
+        usbMsgFlags = 0;
+     e8c:	10 92 64 00 	sts	0x0064, r1
+        uchar type = rq->bmRequestType & USBRQ_TYPE_MASK;
+     e90:	88 81       	ld	r24, Y
+     e92:	80 76       	andi	r24, 0x60	; 96
+        if(type != USBRQ_TYPE_STANDARD){    /* standard requests are handled by driver */
+     e94:	19 f0       	breq	.+6      	; 0xe9c <usbPoll+0x4c>
+            replyLen = usbFunctionSetup(data);
+     e96:	ce 01       	movw	r24, r28
+     e98:	74 de       	rcall	.-792    	; 0xb82 <usbFunctionSetup>
+     e9a:	6a c0       	rjmp	.+212    	; 0xf70 <usbPoll+0x120>
+ */
+static inline usbMsgLen_t usbDriverSetup(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+uchar   *dataPtr = usbTxBuf + 9;    /* there are 2 bytes free space at the end of the buffer */
+uchar   value = rq->wValue.bytes[0];
+     e9c:	8a 81       	ldd	r24, Y+2	; 0x02
+#if USB_CFG_IMPLEMENT_HALT
+uchar   index = rq->wIndex.bytes[0];
+#endif
+
+    dataPtr[0] = 0; /* default reply common to USBRQ_GET_STATUS and USBRQ_GET_INTERFACE */
+     e9e:	10 92 87 02 	sts	0x0287, r1
+    SWITCH_START(rq->bRequest)
+     ea2:	99 81       	ldd	r25, Y+1	; 0x01
+    SWITCH_CASE(USBRQ_GET_STATUS)           /* 0 */
+     ea4:	91 11       	cpse	r25, r1
+     ea6:	06 c0       	rjmp	.+12     	; 0xeb4 <usbPoll+0x64>
+            dataPtr[0] =  USB_CFG_IS_SELF_POWERED;
+#if USB_CFG_IMPLEMENT_HALT
+        if(recipient == USBRQ_RCPT_ENDPOINT && index == 0x81)   /* request status for endpoint 1 */
+            dataPtr[0] = usbTxLen1 == USBPID_STALL;
+#endif
+        dataPtr[1] = 0;
+     ea8:	10 92 88 02 	sts	0x0288, r1
+ * standard requests instead of class and custom requests.
+ */
+static inline usbMsgLen_t usbDriverSetup(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+uchar   *dataPtr = usbTxBuf + 9;    /* there are 2 bytes free space at the end of the buffer */
+     eac:	27 e8       	ldi	r18, 0x87	; 135
+     eae:	32 e0       	ldi	r19, 0x02	; 2
+#if USB_CFG_IMPLEMENT_HALT
+        if(recipient == USBRQ_RCPT_ENDPOINT && index == 0x81)   /* request status for endpoint 1 */
+            dataPtr[0] = usbTxLen1 == USBPID_STALL;
+#endif
+        dataPtr[1] = 0;
+        len = 2;
+     eb0:	82 e0       	ldi	r24, 0x02	; 2
+     eb2:	5a c0       	rjmp	.+180    	; 0xf68 <usbPoll+0x118>
+        if(value == 0 && index == 0x81){    /* feature 0 == HALT for endpoint == 1 */
+            usbTxLen1 = rq->bRequest == USBRQ_CLEAR_FEATURE ? USBPID_NAK : USBPID_STALL;
+            usbResetDataToggling();
+        }
+#endif
+    SWITCH_CASE(USBRQ_SET_ADDRESS)          /* 5 */
+     eb4:	95 30       	cpi	r25, 0x05	; 5
+     eb6:	31 f4       	brne	.+12     	; 0xec4 <usbPoll+0x74>
+        usbNewDeviceAddr = value;
+     eb8:	80 93 8f 02 	sts	0x028F, r24
+ * standard requests instead of class and custom requests.
+ */
+static inline usbMsgLen_t usbDriverSetup(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+uchar   *dataPtr = usbTxBuf + 9;    /* there are 2 bytes free space at the end of the buffer */
+     ebc:	27 e8       	ldi	r18, 0x87	; 135
+     ebe:	32 e0       	ldi	r19, 0x02	; 2
+/* usbDriverSetup() is similar to usbFunctionSetup(), but it's used for
+ * standard requests instead of class and custom requests.
+ */
+static inline usbMsgLen_t usbDriverSetup(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+     ec0:	80 e0       	ldi	r24, 0x00	; 0
+     ec2:	52 c0       	rjmp	.+164    	; 0xf68 <usbPoll+0x118>
+        }
+#endif
+    SWITCH_CASE(USBRQ_SET_ADDRESS)          /* 5 */
+        usbNewDeviceAddr = value;
+        USB_SET_ADDRESS_HOOK();
+    SWITCH_CASE(USBRQ_GET_DESCRIPTOR)       /* 6 */
+     ec4:	96 30       	cpi	r25, 0x06	; 6
+     ec6:	e1 f5       	brne	.+120    	; 0xf40 <usbPoll+0xf0>
+static inline usbMsgLen_t usbDriverDescriptor(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+uchar       flags = USB_FLG_MSGPTR_IS_ROM;
+
+    SWITCH_START(rq->wValue.bytes[1])
+     ec8:	9b 81       	ldd	r25, Y+3	; 0x03
+    SWITCH_CASE(USBDESCR_DEVICE)    /* 1 */
+     eca:	91 30       	cpi	r25, 0x01	; 1
+     ecc:	41 f4       	brne	.+16     	; 0xede <usbPoll+0x8e>
+        GET_DESCRIPTOR(USB_CFG_DESCR_PROPS_DEVICE, usbDescriptorDevice)
+     ece:	88 e3       	ldi	r24, 0x38	; 56
+     ed0:	90 e0       	ldi	r25, 0x00	; 0
+     ed2:	90 93 8d 02 	sts	0x028D, r25
+     ed6:	80 93 8c 02 	sts	0x028C, r24
+     eda:	82 e1       	ldi	r24, 0x12	; 18
+     edc:	2d c0       	rjmp	.+90     	; 0xf38 <usbPoll+0xe8>
+    SWITCH_CASE(USBDESCR_CONFIG)    /* 2 */
+     ede:	92 30       	cpi	r25, 0x02	; 2
+     ee0:	41 f4       	brne	.+16     	; 0xef2 <usbPoll+0xa2>
+        GET_DESCRIPTOR(USB_CFG_DESCR_PROPS_CONFIGURATION, usbDescriptorConfiguration)
+     ee2:	86 e2       	ldi	r24, 0x26	; 38
+     ee4:	90 e0       	ldi	r25, 0x00	; 0
+     ee6:	90 93 8d 02 	sts	0x028D, r25
+     eea:	80 93 8c 02 	sts	0x028C, r24
+     eee:	82 e1       	ldi	r24, 0x12	; 18
+     ef0:	23 c0       	rjmp	.+70     	; 0xf38 <usbPoll+0xe8>
+    SWITCH_CASE(USBDESCR_STRING)    /* 3 */
+     ef2:	93 30       	cpi	r25, 0x03	; 3
+     ef4:	f1 f4       	brne	.+60     	; 0xf32 <usbPoll+0xe2>
+        if(USB_CFG_DESCR_PROPS_STRINGS & USB_PROP_IS_RAM)
+            flags = 0;
+        len = usbFunctionDescriptor(rq);
+#else   /* USB_CFG_DESCR_PROPS_STRINGS & USB_PROP_IS_DYNAMIC */
+        SWITCH_START(rq->wValue.bytes[0])
+        SWITCH_CASE(0)
+     ef6:	81 11       	cpse	r24, r1
+     ef8:	08 c0       	rjmp	.+16     	; 0xf0a <usbPoll+0xba>
+            GET_DESCRIPTOR(USB_CFG_DESCR_PROPS_STRING_0, usbDescriptorString0)
+     efa:	80 e8       	ldi	r24, 0x80	; 128
+     efc:	90 e0       	ldi	r25, 0x00	; 0
+     efe:	90 93 8d 02 	sts	0x028D, r25
+     f02:	80 93 8c 02 	sts	0x028C, r24
+     f06:	84 e0       	ldi	r24, 0x04	; 4
+     f08:	17 c0       	rjmp	.+46     	; 0xf38 <usbPoll+0xe8>
+        SWITCH_CASE(1)
+     f0a:	81 30       	cpi	r24, 0x01	; 1
+     f0c:	41 f4       	brne	.+16     	; 0xf1e <usbPoll+0xce>
+            GET_DESCRIPTOR(USB_CFG_DESCR_PROPS_STRING_VENDOR, usbDescriptorStringVendor)
+     f0e:	80 e6       	ldi	r24, 0x60	; 96
+     f10:	90 e0       	ldi	r25, 0x00	; 0
+     f12:	90 93 8d 02 	sts	0x028D, r25
+     f16:	80 93 8c 02 	sts	0x028C, r24
+     f1a:	80 e2       	ldi	r24, 0x20	; 32
+     f1c:	0d c0       	rjmp	.+26     	; 0xf38 <usbPoll+0xe8>
+        SWITCH_CASE(2)
+     f1e:	82 30       	cpi	r24, 0x02	; 2
+     f20:	51 f4       	brne	.+20     	; 0xf36 <usbPoll+0xe6>
+            GET_DESCRIPTOR(USB_CFG_DESCR_PROPS_STRING_PRODUCT, usbDescriptorStringDevice)
+     f22:	8a e4       	ldi	r24, 0x4A	; 74
+     f24:	90 e0       	ldi	r25, 0x00	; 0
+     f26:	90 93 8d 02 	sts	0x028D, r25
+     f2a:	80 93 8c 02 	sts	0x028C, r24
+     f2e:	86 e1       	ldi	r24, 0x16	; 22
+     f30:	03 c0       	rjmp	.+6      	; 0xf38 <usbPoll+0xe8>
+/* usbDriverDescriptor() is similar to usbFunctionDescriptor(), but used
+ * internally for all types of descriptors.
+ */
+static inline usbMsgLen_t usbDriverDescriptor(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+     f32:	80 e0       	ldi	r24, 0x00	; 0
+     f34:	01 c0       	rjmp	.+2      	; 0xf38 <usbPoll+0xe8>
+     f36:	80 e0       	ldi	r24, 0x00	; 0
+    SWITCH_DEFAULT
+        if(USB_CFG_DESCR_PROPS_UNKNOWN & USB_PROP_IS_DYNAMIC){
+            len = usbFunctionDescriptor(rq);
+        }
+    SWITCH_END
+    usbMsgFlags = flags;
+     f38:	90 e4       	ldi	r25, 0x40	; 64
+     f3a:	90 93 64 00 	sts	0x0064, r25
+     f3e:	18 c0       	rjmp	.+48     	; 0xf70 <usbPoll+0x120>
+        usbNewDeviceAddr = value;
+        USB_SET_ADDRESS_HOOK();
+    SWITCH_CASE(USBRQ_GET_DESCRIPTOR)       /* 6 */
+        len = usbDriverDescriptor(rq);
+        goto skipMsgPtrAssignment;
+    SWITCH_CASE(USBRQ_GET_CONFIGURATION)    /* 8 */
+     f40:	98 30       	cpi	r25, 0x08	; 8
+     f42:	79 f0       	breq	.+30     	; 0xf62 <usbPoll+0x112>
+        dataPtr = &usbConfiguration;  /* send current configuration value */
+        len = 1;
+    SWITCH_CASE(USBRQ_SET_CONFIGURATION)    /* 9 */
+     f44:	99 30       	cpi	r25, 0x09	; 9
+     f46:	31 f4       	brne	.+12     	; 0xf54 <usbPoll+0x104>
+        usbConfiguration = value;
+     f48:	80 93 91 02 	sts	0x0291, r24
+ * standard requests instead of class and custom requests.
+ */
+static inline usbMsgLen_t usbDriverSetup(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+uchar   *dataPtr = usbTxBuf + 9;    /* there are 2 bytes free space at the end of the buffer */
+     f4c:	27 e8       	ldi	r18, 0x87	; 135
+     f4e:	32 e0       	ldi	r19, 0x02	; 2
+/* usbDriverSetup() is similar to usbFunctionSetup(), but it's used for
+ * standard requests instead of class and custom requests.
+ */
+static inline usbMsgLen_t usbDriverSetup(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+     f50:	80 e0       	ldi	r24, 0x00	; 0
+     f52:	0a c0       	rjmp	.+20     	; 0xf68 <usbPoll+0x118>
+        dataPtr = &usbConfiguration;  /* send current configuration value */
+        len = 1;
+    SWITCH_CASE(USBRQ_SET_CONFIGURATION)    /* 9 */
+        usbConfiguration = value;
+        usbResetStall();
+    SWITCH_CASE(USBRQ_GET_INTERFACE)        /* 10 */
+     f54:	81 e0       	ldi	r24, 0x01	; 1
+     f56:	9a 30       	cpi	r25, 0x0A	; 10
+     f58:	09 f0       	breq	.+2      	; 0xf5c <usbPoll+0x10c>
+     f5a:	80 e0       	ldi	r24, 0x00	; 0
+ * standard requests instead of class and custom requests.
+ */
+static inline usbMsgLen_t usbDriverSetup(usbRequest_t *rq)
+{
+usbMsgLen_t len = 0;
+uchar   *dataPtr = usbTxBuf + 9;    /* there are 2 bytes free space at the end of the buffer */
+     f5c:	27 e8       	ldi	r18, 0x87	; 135
+     f5e:	32 e0       	ldi	r19, 0x02	; 2
+     f60:	03 c0       	rjmp	.+6      	; 0xf68 <usbPoll+0x118>
+        USB_SET_ADDRESS_HOOK();
+    SWITCH_CASE(USBRQ_GET_DESCRIPTOR)       /* 6 */
+        len = usbDriverDescriptor(rq);
+        goto skipMsgPtrAssignment;
+    SWITCH_CASE(USBRQ_GET_CONFIGURATION)    /* 8 */
+        dataPtr = &usbConfiguration;  /* send current configuration value */
+     f62:	21 e9       	ldi	r18, 0x91	; 145
+     f64:	32 e0       	ldi	r19, 0x02	; 2
+        len = 1;
+     f66:	81 e0       	ldi	r24, 0x01	; 1
+        usbResetStall();
+#endif
+    SWITCH_DEFAULT                          /* 7=SET_DESCRIPTOR, 12=SYNC_FRAME */
+        /* Should we add an optional hook here? */
+    SWITCH_END
+    usbMsgPtr = (usbMsgPtr_t)dataPtr;
+     f68:	30 93 8d 02 	sts	0x028D, r19
+     f6c:	20 93 8c 02 	sts	0x028C, r18
+            replyLen = usbFunctionSetup(data);
+        }else{
+            replyLen = usbDriverSetup(rq);
+        }
+#if USB_CFG_IMPLEMENT_FN_READ || USB_CFG_IMPLEMENT_FN_WRITE
+        if(replyLen == USB_NO_MSG){         /* use user-supplied read/write function */
+     f70:	8f 3f       	cpi	r24, 0xFF	; 255
+     f72:	41 f4       	brne	.+16     	; 0xf84 <usbPoll+0x134>
+            /* do some conditioning on replyLen, but on IN transfers only */
+            if((rq->bmRequestType & USBRQ_DIR_MASK) != USBRQ_DIR_HOST_TO_DEVICE){
+     f74:	98 81       	ld	r25, Y
+     f76:	99 23       	and	r25, r25
+     f78:	0c f4       	brge	.+2      	; 0xf7c <usbPoll+0x12c>
+                if(sizeof(replyLen) < sizeof(rq->wLength.word)){ /* help compiler with optimizing */
+                    replyLen = rq->wLength.bytes[0];
+     f7a:	8e 81       	ldd	r24, Y+6	; 0x06
+                }else{
+                    replyLen = rq->wLength.word;
+                }
+            }
+            usbMsgFlags = USB_FLG_USE_USER_RW;
+     f7c:	90 e8       	ldi	r25, 0x80	; 128
+     f7e:	90 93 64 00 	sts	0x0064, r25
+     f82:	07 c0       	rjmp	.+14     	; 0xf92 <usbPoll+0x142>
+        }else   /* The 'else' prevents that we limit a replyLen of USB_NO_MSG to the maximum transfer len. */
+#endif
+        if(sizeof(replyLen) < sizeof(rq->wLength.word)){ /* help compiler with optimizing */
+            if(!rq->wLength.bytes[1] && replyLen > rq->wLength.bytes[0])    /* limit length to max */
+     f84:	9f 81       	ldd	r25, Y+7	; 0x07
+     f86:	91 11       	cpse	r25, r1
+     f88:	04 c0       	rjmp	.+8      	; 0xf92 <usbPoll+0x142>
+     f8a:	9e 81       	ldd	r25, Y+6	; 0x06
+     f8c:	98 17       	cp	r25, r24
+     f8e:	08 f4       	brcc	.+2      	; 0xf92 <usbPoll+0x142>
+     f90:	89 2f       	mov	r24, r25
+                replyLen = rq->wLength.bytes[0];
+        }else{
+            if(replyLen > rq->wLength.word)     /* limit length to max */
+                replyLen = rq->wLength.word;
+        }
+        usbMsgLen = replyLen;
+     f92:	80 93 60 00 	sts	0x0060, r24
+     f96:	0f c0       	rjmp	.+30     	; 0xfb6 <usbPoll+0x166>
+    }else{  /* usbRxToken must be USBPID_OUT, which means data phase of setup (control-out) */
+#if USB_CFG_IMPLEMENT_FN_WRITE
+        if(usbMsgFlags & USB_FLG_USE_USER_RW){
+     f98:	80 91 64 00 	lds	r24, 0x0064
+     f9c:	88 23       	and	r24, r24
+     f9e:	5c f4       	brge	.+22     	; 0xfb6 <usbPoll+0x166>
+            uchar rval = usbFunctionWrite(data, len);
+     fa0:	ce 01       	movw	r24, r28
+     fa2:	71 de       	rcall	.-798    	; 0xc86 <usbFunctionWrite>
+            if(rval == 0xff){   /* an error occurred */
+     fa4:	8f 3f       	cpi	r24, 0xFF	; 255
+     fa6:	21 f4       	brne	.+8      	; 0xfb0 <usbPoll+0x160>
+                usbTxLen = USBPID_STALL;
+     fa8:	8e e1       	ldi	r24, 0x1E	; 30
+     faa:	80 93 61 00 	sts	0x0061, r24
+     fae:	03 c0       	rjmp	.+6      	; 0xfb6 <usbPoll+0x166>
+            }else if(rval != 0){    /* This was the final package */
+     fb0:	81 11       	cpse	r24, r1
+                usbMsgLen = 0;  /* answer with a zero-sized data packet */
+     fb2:	10 92 60 00 	sts	0x0060, r1
+        usbProcessRx(usbRxBuf + USB_BUFSIZE + 1 - usbInputBufOffset, len);
+#if USB_CFG_HAVE_FLOWCONTROL
+        if(usbRxLen > 0)    /* only mark as available if not inactivated */
+            usbRxLen = 0;
+#else
+        usbRxLen = 0;       /* mark rx buffer as available */
+     fb6:	10 92 8e 02 	sts	0x028E, r1
+#endif
+    }
+    if(usbTxLen & 0x10){    /* transmit system idle */
+     fba:	80 91 61 00 	lds	r24, 0x0061
+     fbe:	84 ff       	sbrs	r24, 4
+     fc0:	5b c0       	rjmp	.+182    	; 0x1078 <usbPoll+0x228>
+        if(usbMsgLen != USB_NO_MSG){    /* transmit data pending? */
+     fc2:	80 91 60 00 	lds	r24, 0x0060
+     fc6:	8f 3f       	cpi	r24, 0xFF	; 255
+     fc8:	09 f4       	brne	.+2      	; 0xfcc <usbPoll+0x17c>
+     fca:	56 c0       	rjmp	.+172    	; 0x1078 <usbPoll+0x228>
+     fcc:	c8 2f       	mov	r28, r24
+     fce:	89 30       	cpi	r24, 0x09	; 9
+     fd0:	08 f0       	brcs	.+2      	; 0xfd4 <usbPoll+0x184>
+     fd2:	c8 e0       	ldi	r28, 0x08	; 8
+uchar       len;
+
+    wantLen = usbMsgLen;
+    if(wantLen > 8)
+        wantLen = 8;
+    usbMsgLen -= wantLen;
+     fd4:	8c 1b       	sub	r24, r28
+     fd6:	80 93 60 00 	sts	0x0060, r24
+    usbTxBuf[0] ^= USBPID_DATA0 ^ USBPID_DATA1; /* DATA toggling */
+     fda:	ee e7       	ldi	r30, 0x7E	; 126
+     fdc:	f2 e0       	ldi	r31, 0x02	; 2
+     fde:	90 81       	ld	r25, Z
+     fe0:	88 e8       	ldi	r24, 0x88	; 136
+     fe2:	89 27       	eor	r24, r25
+     fe4:	80 83       	st	Z, r24
+/* This function is similar to usbFunctionRead(), but it's also called for
+ * data handled automatically by the driver (e.g. descriptor reads).
+ */
+static uchar usbDeviceRead(uchar *data, uchar len)
+{
+    if(len > 0){    /* don't bother app with 0 sized reads */
+     fe6:	cc 23       	and	r28, r28
+     fe8:	09 f4       	brne	.+2      	; 0xfec <usbPoll+0x19c>
+     fea:	54 c0       	rjmp	.+168    	; 0x1094 <usbPoll+0x244>
+#if USB_CFG_IMPLEMENT_FN_READ
+        if(usbMsgFlags & USB_FLG_USE_USER_RW){
+     fec:	80 91 64 00 	lds	r24, 0x0064
+     ff0:	88 23       	and	r24, r24
+     ff2:	34 f4       	brge	.+12     	; 0x1000 <usbPoll+0x1b0>
+            len = usbFunctionRead(data, len);
+     ff4:	6c 2f       	mov	r22, r28
+     ff6:	8f e7       	ldi	r24, 0x7F	; 127
+     ff8:	92 e0       	ldi	r25, 0x02	; 2
+     ffa:	00 de       	rcall	.-1024   	; 0xbfc <usbFunctionRead>
+     ffc:	c8 2f       	mov	r28, r24
+     ffe:	29 c0       	rjmp	.+82     	; 0x1052 <usbPoll+0x202>
+        }else
+#endif
+        {
+            uchar i = len;
+            usbMsgPtr_t r = usbMsgPtr;
+    1000:	20 91 8c 02 	lds	r18, 0x028C
+    1004:	30 91 8d 02 	lds	r19, 0x028D
+            if(usbMsgFlags & USB_FLG_MSGPTR_IS_ROM){    /* ROM data */
+    1008:	86 ff       	sbrs	r24, 6
+    100a:	10 c0       	rjmp	.+32     	; 0x102c <usbPoll+0x1dc>
+    100c:	af e7       	ldi	r26, 0x7F	; 127
+    100e:	b2 e0       	ldi	r27, 0x02	; 2
+    1010:	f9 01       	movw	r30, r18
+    1012:	8c 2f       	mov	r24, r28
+                do{
+                    uchar c = USB_READ_FLASH(r);    /* assign to char size variable to enforce byte ops */
+    1014:	94 91       	lpm	r25, Z
+                    *data++ = c;
+    1016:	9d 93       	st	X+, r25
+                    r++;
+    1018:	31 96       	adiw	r30, 0x01	; 1
+                }while(--i);
+    101a:	81 50       	subi	r24, 0x01	; 1
+    101c:	d9 f7       	brne	.-10     	; 0x1014 <usbPoll+0x1c4>
+    101e:	8f ef       	ldi	r24, 0xFF	; 255
+    1020:	8c 0f       	add	r24, r28
+    1022:	90 e0       	ldi	r25, 0x00	; 0
+    1024:	01 96       	adiw	r24, 0x01	; 1
+    1026:	28 0f       	add	r18, r24
+    1028:	39 1f       	adc	r19, r25
+    102a:	0f c0       	rjmp	.+30     	; 0x104a <usbPoll+0x1fa>
+    102c:	d9 01       	movw	r26, r18
+    102e:	ef e7       	ldi	r30, 0x7F	; 127
+    1030:	f2 e0       	ldi	r31, 0x02	; 2
+        }else
+#endif
+        {
+            uchar i = len;
+            usbMsgPtr_t r = usbMsgPtr;
+            if(usbMsgFlags & USB_FLG_MSGPTR_IS_ROM){    /* ROM data */
+    1032:	8c 2f       	mov	r24, r28
+                    *data++ = c;
+                    r++;
+                }while(--i);
+            }else{  /* RAM data */
+                do{
+                    *data++ = *((uchar *)r);
+    1034:	9d 91       	ld	r25, X+
+    1036:	91 93       	st	Z+, r25
+                    r++;
+                }while(--i);
+    1038:	81 50       	subi	r24, 0x01	; 1
+    103a:	e1 f7       	brne	.-8      	; 0x1034 <usbPoll+0x1e4>
+    103c:	4f ef       	ldi	r20, 0xFF	; 255
+    103e:	4c 0f       	add	r20, r28
+    1040:	50 e0       	ldi	r21, 0x00	; 0
+    1042:	4f 5f       	subi	r20, 0xFF	; 255
+    1044:	5f 4f       	sbci	r21, 0xFF	; 255
+    1046:	24 0f       	add	r18, r20
+    1048:	35 1f       	adc	r19, r21
+            }
+            usbMsgPtr = r;
+    104a:	30 93 8d 02 	sts	0x028D, r19
+    104e:	20 93 8c 02 	sts	0x028C, r18
+    if(wantLen > 8)
+        wantLen = 8;
+    usbMsgLen -= wantLen;
+    usbTxBuf[0] ^= USBPID_DATA0 ^ USBPID_DATA1; /* DATA toggling */
+    len = usbDeviceRead(usbTxBuf + 1, wantLen);
+    if(len <= 8){           /* valid data packet */
+    1052:	c9 30       	cpi	r28, 0x09	; 9
+    1054:	58 f4       	brcc	.+22     	; 0x106c <usbPoll+0x21c>
+        usbCrc16Append(&usbTxBuf[1], len);
+    1056:	6c 2f       	mov	r22, r28
+    1058:	8f e7       	ldi	r24, 0x7F	; 127
+    105a:	92 e0       	ldi	r25, 0x02	; 2
+    105c:	44 d8       	rcall	.-3960   	; 0xe6 <usbCrc16Append>
+        len += 4;           /* length including sync byte */
+    105e:	cc 5f       	subi	r28, 0xFC	; 252
+        if(len < 12)        /* a partial package identifies end of message */
+    1060:	cc 30       	cpi	r28, 0x0C	; 12
+    1062:	40 f4       	brcc	.+16     	; 0x1074 <usbPoll+0x224>
+            usbMsgLen = USB_NO_MSG;
+    1064:	8f ef       	ldi	r24, 0xFF	; 255
+    1066:	80 93 60 00 	sts	0x0060, r24
+    106a:	04 c0       	rjmp	.+8      	; 0x1074 <usbPoll+0x224>
+    }else{
+        len = USBPID_STALL;   /* stall the endpoint */
+        usbMsgLen = USB_NO_MSG;
+    106c:	8f ef       	ldi	r24, 0xFF	; 255
+    106e:	80 93 60 00 	sts	0x0060, r24
+        usbCrc16Append(&usbTxBuf[1], len);
+        len += 4;           /* length including sync byte */
+        if(len < 12)        /* a partial package identifies end of message */
+            usbMsgLen = USB_NO_MSG;
+    }else{
+        len = USBPID_STALL;   /* stall the endpoint */
+    1072:	ce e1       	ldi	r28, 0x1E	; 30
+        usbMsgLen = USB_NO_MSG;
+    }
+    usbTxLen = len;
+    1074:	c0 93 61 00 	sts	0x0061, r28
+        if(usbMsgLen != USB_NO_MSG){    /* transmit data pending? */
+            usbBuildTxBlock();
+        }
+    }
+    for(i = 20; i > 0; i--){
+        uchar usbLineStatus = USBIN & USBMASK;
+    1078:	80 b3       	in	r24, 0x10	; 16
+    107a:	84 71       	andi	r24, 0x14	; 20
+        if(usbLineStatus != 0)  /* SE0 has ended */
+    107c:	89 f4       	brne	.+34     	; 0x10a0 <usbPoll+0x250>
+    107e:	83 e1       	ldi	r24, 0x13	; 19
+        if(usbMsgLen != USB_NO_MSG){    /* transmit data pending? */
+            usbBuildTxBlock();
+        }
+    }
+    for(i = 20; i > 0; i--){
+        uchar usbLineStatus = USBIN & USBMASK;
+    1080:	90 b3       	in	r25, 0x10	; 16
+    1082:	94 71       	andi	r25, 0x14	; 20
+        if(usbLineStatus != 0)  /* SE0 has ended */
+    1084:	69 f4       	brne	.+26     	; 0x10a0 <usbPoll+0x250>
+    1086:	81 50       	subi	r24, 0x01	; 1
+    if(usbTxLen & 0x10){    /* transmit system idle */
+        if(usbMsgLen != USB_NO_MSG){    /* transmit data pending? */
+            usbBuildTxBlock();
+        }
+    }
+    for(i = 20; i > 0; i--){
+    1088:	d9 f7       	brne	.-10     	; 0x1080 <usbPoll+0x230>
+        uchar usbLineStatus = USBIN & USBMASK;
+        if(usbLineStatus != 0)  /* SE0 has ended */
+            goto isNotReset;
+    }
+    /* RESET condition, called multiple times during reset */
+    usbNewDeviceAddr = 0;
+    108a:	10 92 8f 02 	sts	0x028F, r1
+    usbDeviceAddr = 0;
+    108e:	10 92 89 02 	sts	0x0289, r1
+    1092:	06 c0       	rjmp	.+12     	; 0x10a0 <usbPoll+0x250>
+        wantLen = 8;
+    usbMsgLen -= wantLen;
+    usbTxBuf[0] ^= USBPID_DATA0 ^ USBPID_DATA1; /* DATA toggling */
+    len = usbDeviceRead(usbTxBuf + 1, wantLen);
+    if(len <= 8){           /* valid data packet */
+        usbCrc16Append(&usbTxBuf[1], len);
+    1094:	6c 2f       	mov	r22, r28
+    1096:	8f e7       	ldi	r24, 0x7F	; 127
+    1098:	92 e0       	ldi	r25, 0x02	; 2
+    109a:	25 d8       	rcall	.-4022   	; 0xe6 <usbCrc16Append>
+        len += 4;           /* length including sync byte */
+    109c:	cc 5f       	subi	r28, 0xFC	; 252
+    109e:	e2 cf       	rjmp	.-60     	; 0x1064 <usbPoll+0x214>
+    usbDeviceAddr = 0;
+    usbResetStall();
+    DBG1(0xff, 0, 0);
+isNotReset:
+    usbHandleResetHook(i);
+}
+    10a0:	df 91       	pop	r29
+    10a2:	cf 91       	pop	r28
+    10a4:	08 95       	ret
+
+000010a6 <usbInit>:
+/* ------------------------------------------------------------------------- */
+
+USB_PUBLIC void usbInit(void)
+{
+#if USB_INTR_CFG_SET != 0
+    USB_INTR_CFG |= USB_INTR_CFG_SET;
+    10a6:	85 b7       	in	r24, 0x35	; 53
+    10a8:	82 60       	ori	r24, 0x02	; 2
+    10aa:	85 bf       	out	0x35, r24	; 53
+#endif
+#if USB_INTR_CFG_CLR != 0
+    USB_INTR_CFG &= ~(USB_INTR_CFG_CLR);
+#endif
+    USB_INTR_ENABLE |= (1 << USB_INTR_ENABLE_BIT);
+    10ac:	8b b7       	in	r24, 0x3b	; 59
+    10ae:	80 64       	ori	r24, 0x40	; 64
+    10b0:	8b bf       	out	0x3b, r24	; 59
+    10b2:	08 95       	ret
+
+000010b4 <_exit>:
+    10b4:	f8 94       	cli
+
+000010b6 <__stop_program>:
+    10b6:	ff cf       	rjmp	.-2      	; 0x10b6 <__stop_program>

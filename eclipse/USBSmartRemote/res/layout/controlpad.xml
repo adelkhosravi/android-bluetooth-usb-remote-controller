@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/numpad_container"
+    android:layout_width="295dp"
+    android:layout_height="265dp"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/num_1_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:background="@drawable/num_button_01_stateful"
+            android:contentDescription="1"
+            android:onClick="onClickContent"
+            android:tag="1" />
+
+        <ImageButton
+            android:id="@+id/num_2_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_02_stateful"
+            android:contentDescription="2"
+            android:onClick="onClickContent"
+            android:tag="2" />
+
+        <ImageButton
+            android:id="@+id/num_3_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_03_stateful"
+            android:contentDescription="3"
+            android:onClick="onClickContent"
+            android:tag="3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/num_4_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:background="@drawable/num_button_04_stateful"
+            android:contentDescription="4"
+            android:onClick="onClickContent"
+            android:tag="4" />
+
+        <ImageButton
+            android:id="@+id/num_5_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_05_stateful"
+            android:contentDescription="5"
+            android:onClick="onClickContent"
+            android:tag="5" />
+
+        <ImageButton
+            android:id="@+id/num_6_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_06_stateful"
+            android:contentDescription="6"
+            android:onClick="onClickContent"
+            android:tag="6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/num_7_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:background="@drawable/num_button_07_stateful"
+            android:contentDescription="7"
+            android:onClick="onClickContent"
+            android:tag="7" />
+
+        <ImageButton
+            android:id="@+id/num_8_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_08_stateful"
+            android:contentDescription="8"
+            android:onClick="onClickContent"
+            android:tag="8" />
+
+        <ImageButton
+            android:id="@+id/num_9_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_09_stateful"
+            android:contentDescription="9"
+            android:onClick="onClickContent"
+            android:tag="9" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/num_dash_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:background="@drawable/num_button_dash_stateful"
+            android:onClick="onClickContent"
+            android:tag="." />
+
+        <ImageButton
+            android:id="@+id/num_0_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_00_stateful"
+            android:contentDescription="0"
+            android:onClick="onClickContent"
+            android:tag="0" />
+
+        <ImageButton
+            android:id="@+id/num_enter_btn"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1.0dip"
+            android:background="@drawable/num_button_enter_stateful"
+            android:onClick="onClickContent"
+            android:tag="Enter" />
+    </LinearLayout>
+
+</LinearLayout>

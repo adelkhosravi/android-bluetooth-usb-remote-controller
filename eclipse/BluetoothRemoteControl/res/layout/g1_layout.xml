@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/g1_layout" >
+    
+     <Button
+        android:id="@+id/power"
+        android:layout_width="74.0dip"
+        android:layout_height="76.0dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10.0dip"
+        android:background="@drawable/samsung_btn_power_on_stateful"
+        android:onClick="onClickContent" />
+
+    <RelativeLayout
+        android:id="@+id/volume_container"
+        android:layout_width="83.0dip"
+        android:layout_height="234.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25.0dip"
+        android:layout_marginTop="60.0dip" >
+
+        
+
+        <View
+            android:id="@+id/volume_up"
+            android:background="@drawable/g1_volup_selector"
+            android:layout_width="fill_parent"
+            android:layout_height="117.0dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickContent"
+            android:tag="Volume_Up" />
+
+        <View
+            android:id="@+id/volume_dn"
+            android:layout_width="fill_parent"
+            android:background="@drawable/g1_vlodown_selector"
+            android:layout_height="117.0dip"
+            android:layout_below="@id/volume_up"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickContent"
+            android:tag="Volume_Down" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/channel_container"
+        android:layout_width="83.0dip"
+        android:layout_height="234.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25.0dip"
+        android:layout_marginTop="60.0dip" >
+
+        <View
+            android:id="@+id/channel_up"
+            android:layout_width="fill_parent"
+            android:layout_height="117.0dip"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/g1_chup_selector"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickContent"
+            android:tag="Channel_Up" />
+
+        <View
+            android:id="@+id/channel_dn"
+            android:layout_width="fill_parent"
+            android:layout_height="117.0dip"
+            android:background="@drawable/g1_chdown_selector"
+            android:layout_below="@id/channel_up"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickContent"
+            android:tag="Channel_Down" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mute_container"
+        android:layout_width="78.0dip"
+        android:layout_height="89.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45.0dip"
+        android:layout_marginTop="310.0dip" >
+
+        <Button
+            android:id="@+id/mute_btn"
+            android:layout_width="69.0dip"
+            android:layout_height="72.0dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickContent" 
+            android:background="@drawable/lockscreen_mute"
+            android:tag="Mute" />
+
+        <TextView
+            android:id="@+id/mute_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffbbb9b9"
+            android:textSize="15.0dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/source_container"
+        android:layout_width="78.0dip"
+        android:layout_height="89.0dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310.0dip" >
+
+        <Button
+            android:id="@+id/source"
+            android:layout_width="69.0dip"
+            android:layout_height="72.0dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn6_source_stateful"
+            android:onClick="onClickContent"
+            android:tag="Input" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffbbb9b9"
+            android:textSize="15.0dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/keypad_btn_container"
+        android:layout_width="78.0dip"
+        android:layout_height="89.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="45.0dip"
+        android:layout_marginTop="310.0dip" >
+
+        <Button
+            android:id="@+id/keypad_btn"
+            android:layout_width="69.0dip"
+            android:layout_height="72.0dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickContent"
+            android:background="@drawable/btn_keypad_stateful" />
+
+        <TextView
+            android:id="@+id/keypad_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="123"
+            android:textColor="#ffbbb9b9"
+            android:textSize="15.0dip" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView12"
+    	android:shadowColor="@color/TransparentGrey"
+    	android:shadowDx="3"
+    	android:shadowDy="3"
+    	android:shadowRadius="1.5"
+    	android:typeface="serif"
+    	android:textColor="@color/White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/channel_container"
+        android:layout_alignTop="@+id/power"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"  >
+
+    <item
+        android:id="@+id/new_device_menu"
+        android:orderInCategory="100"
+        android:title="@string/new_device"/>
+     <item
+        android:id="@+id/device_select_menu"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/dev_select"/>
+     
+     <item
+        android:id="@+id/button_edit_menu"
+        android:orderInCategory="100"
+        android:title="@string/button_recode"/>
+     
+    <item
+        android:id="@+id/help_menu"
+        android:title="@string/help"/>
+    
+    
+    <item
+        android:id="@+id/button_delete_menu"
+        android:orderInCategory="100"
+        android:title="@string/button_delete"
+        
+        />
+    
+    <item
+        android:id="@+id/record"
+        android:title="record"
+        
+        />
+    
+     <item
+        android:id="@+id/stop"
+        android:title="stop"
+        
+        />
+
+</menu>

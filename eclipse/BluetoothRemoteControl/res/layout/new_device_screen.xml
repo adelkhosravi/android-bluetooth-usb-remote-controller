@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:background="@drawable/curve"
+    android:orientation="vertical" 
+    android:paddingTop="20dp">
+
+    <TextView
+        android:id="@+id/txt_dia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text="@string/rem_select"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/cName"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:singleLine="true"
+        android:maxLength="15"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+  
+   <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="5dp" 
+        android:id="@+id/remote_temp_layout">
+
+        <RadioButton
+            android:id="@+id/rem_temp_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temp1" 
+            android:checked="true"
+            />
+
+        <RadioButton
+            android:id="@+id/rem_temp_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temp2" 
+            android:onClick="onCheckListener"/>
+
+       
+    </LinearLayout>
+    
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:paddingTop="5dp" >
+
+        <Button
+            android:id="@+id/btn_yes"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:padding="5dp"
+            android:text="@string/okText"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_no"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:text="@string/cancelText"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/g2_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/color_button_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp" >
+
+        <Button
+            android:id="@+id/g2_green_button"
+            android:layout_width="74.0dip"
+            android:layout_height="50.0dip"
+            android:layout_alignBaseline="@+id/g2_red_button"
+            android:layout_alignBottom="@+id/g2_red_button"
+            android:layout_toRightOf="@+id/g2_red_button"
+            android:background="@drawable/g2_green_selector"
+            android:onClick="onClickContent"
+            android:tag="Green" />
+
+        <Button
+            android:id="@+id/g2_yellow_button"
+            android:layout_width="74.0dip"
+            android:layout_height="50dip"
+            android:layout_alignBaseline="@+id/g2_green_button"
+            android:layout_alignBottom="@+id/g2_green_button"
+            android:layout_toRightOf="@+id/g2_green_button"
+            android:background="@drawable/g2_yellow_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_blue_buton"
+            android:layout_width="74.0dip"
+            android:layout_height="50dip"
+            android:layout_alignBaseline="@+id/g2_yellow_button"
+            android:layout_alignBottom="@+id/g2_yellow_button"
+            android:layout_toRightOf="@+id/g2_yellow_button"
+            android:background="@drawable/g2_blue_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_red_button"
+            android:layout_width="74.0dip"
+            android:layout_height="50dip"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/g2_red_selector"
+            android:onClick="onClickContent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/g2_up_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/color_button_container"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/g2_up_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/g2_up_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_menu_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_marginRight="40dp"
+            android:layout_toLeftOf="@id/g2_up_button"
+            android:background="@drawable/g2_menu_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_info_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/g2_up_button"
+            android:background="@drawable/g2_info_selector"
+            android:onClick="onClickContent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/g2_middle_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/g2_up_container"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/g2_ok_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/g2_ok_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_right_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_toRightOf="@id/g2_ok_button"
+            android:background="@drawable/g2_right_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_left_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_toLeftOf="@id/g2_ok_button"
+            android:background="@drawable/g2_left_selector"
+            android:onClick="onClickContent" 
+            android:tag="left" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/g2_down_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/g2_middle_container"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/g2_down_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/g2_down_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_home_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_marginRight="40dp"
+            android:layout_toLeftOf="@id/g2_down_button"
+            android:background="@drawable/g2_home_selector"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_guide_button"
+            android:layout_width="74.0dip"
+            android:layout_height="76.0dip"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/g2_down_button"
+            android:background="@drawable/g2_guide_selector"
+            android:onClick="onClickContent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/g2_general_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/g2_down_container"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/g2_g1_button"
+            android:layout_width="70.0dip"
+            android:layout_height="50dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="3dp"
+            android:background="@drawable/g2_ff_selector"
+            android:longClickable="true"
+            android:onClick="onClickContent"
+            android:tag="g1" />
+
+        <Button
+            android:id="@+id/g2_g2_button"
+            android:layout_width="70.0dip"
+            android:layout_height="50dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="3dp"
+            android:layout_toRightOf="@+id/g2_g1_button"
+            android:background="@drawable/g2_stop_selector"
+            android:longClickable="true"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_g3_button"
+            android:layout_width="70.0dip"
+            android:layout_height="50dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="3dp"
+            android:layout_toRightOf="@+id/g2_g2_button"
+            android:background="@drawable/g2_play_selector"
+            android:longClickable="true"
+            android:onClick="onClickContent" />
+
+        <Button
+            android:id="@+id/g2_g4_button"
+            android:layout_width="70.0dip"
+            android:layout_height="50dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="3dp"
+            android:layout_toRightOf="@+id/g2_g3_button"
+            android:background="@drawable/g2_bb_selector"
+            android:longClickable="true"
+            android:onClick="onClickContent"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/White" />
+
+</RelativeLayout>
